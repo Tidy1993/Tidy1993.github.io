@@ -5,15 +5,43 @@
   
 
   
-  <title>Hexo</title>
+  <title>用hexo搭建github博客详细全图解 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="在交流中发现身边大佬们都有自己的博客主页，还有一位大佬买了自己的域名，看着就很高大上啊，赶紧注册了个GitHub帐号跟着大佬们一起玩儿更博，从折腾了差不多大半天，已经能成功更博到https://tidy1993.github.io/啦，美滋滋！废话不多说赶紧开始！在配置过程中出现过几个错误，综合了几个大神的帖子进行安装配置，如果我的某些叙述不清楚的话，大家可以看看这几个大佬的，写的都很详细哦！感谢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用hexo搭建github博客详细全图解">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/用hexo搭建github博客详细全图解/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在交流中发现身边大佬们都有自己的博客主页，还有一位大佬买了自己的域名，看着就很高大上啊，赶紧注册了个GitHub帐号跟着大佬们一起玩儿更博，从折腾了差不多大半天，已经能成功更博到https://tidy1993.github.io/啦，美滋滋！废话不多说赶紧开始！在配置过程中出现过几个错误，综合了几个大神的帖子进行安装配置，如果我的某些叙述不清楚的话，大家可以看看这几个大佬的，写的都很详细哦！感谢">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-235d64a634f75d26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-61293c7f227301fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-53cef64ff1f64e4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-c1fd48f28d1e633d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-54d9ea28ff027c37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-f3159d4919e56c47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-f3e66a8ef6ef7aa0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-b919f44f26ee25f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-03c956531e141554.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-9ce4fc7f8e30f68f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-098e7b12f273afc7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-c98d7ec53662e976.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-0c65f1f51e8f3230.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-f33fe96abde3a301.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-4aa1daf1ec41c390.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-b58a751edba86ed5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-30b495fda9cbd716.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-e118937cf680b82f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-2eb9b7efc68b32af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-bdbf0214b1ba9050.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-bd8c128e349bb871.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-30c269f5a1cd4911.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-37e3b3a8397f3834.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-28T00:40:14.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="用hexo搭建github博客详细全图解">
+<meta name="twitter:description" content="在交流中发现身边大佬们都有自己的博客主页，还有一位大佬买了自己的域名，看着就很高大上啊，赶紧注册了个GitHub帐号跟着大佬们一起玩儿更博，从折腾了差不多大半天，已经能成功更博到https://tidy1993.github.io/啦，美滋滋！废话不多说赶紧开始！在配置过程中出现过几个错误，综合了几个大神的帖子进行安装配置，如果我的某些叙述不清楚的话，大家可以看看这几个大佬的，写的都很详细哦！感谢">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7517555-235d64a634f75d26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +88,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-用hexo搭建github博客详细全图解" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-用hexo搭建github博客详细全图解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/28/用hexo搭建github博客详细全图解/" class="article-date">
   <time datetime="2018-05-28T00:39:43.000Z" itemprop="datePublished">2018-05-28</time>
@@ -75,8 +101,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/28/用hexo搭建github博客详细全图解/">用hexo搭建github博客详细全图解</a>
+    <h1 class="article-title" itemprop="name">
+      用hexo搭建github博客详细全图解
     </h1>
   
 
@@ -128,57 +154,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-安装anaconda" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/27/安装anaconda/" class="article-date">
-  <time datetime="2018-05-27T12:43:19.000Z" itemprop="datePublished">2018-05-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/27/安装anaconda/">安装anaconda</a>
-    </h1>
+    <a href="/2018/05/27/安装anaconda/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">安装anaconda</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>####1.安装anaconda<br>使用anaconda直接默认安装了python和Numpy<br>anaconda下载地址：<br><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a><br>推荐在此下载，官网下载速度缓慢<br>选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的</p>
-<p>####2.测试<br>打开anaconda prompt，相当于Windows中的cmd<br><img src="http://upload-images.jianshu.io/upload_images/7517555-bbe86e7a753397f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>输入<code>conda list</code><br>显示anaconda默认安装好的库，如果能出现下列显示说明anaconda安装成功啦<br><img src="http://upload-images.jianshu.io/upload_images/7517555-a7856f2c9042fb84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>####3.打开notebook<br>启动了浏览器版本的编辑器，可以分模块run,但是不能debug,需要debug时需要用其他编辑器<br><img src="http://upload-images.jianshu.io/upload_images/7517555-ac407ddcde5f231a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/7517555-db46456bbd36d8ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>####4.安装其他库</p>
-<ul>
-<li>搜索某个库的课安装包<br>输入<code>anaconda search -t conda tensorflow</code><br>得到很多版本的包，选择匹配系统的相应版本<br><img src="http://upload-images.jianshu.io/upload_images/7517555-0b3e7e083decff77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><ul>
-<li>显示安装包的命令<br>输入<code>anaconda show 相应版本名字</code><br><img src="http://upload-images.jianshu.io/upload_images/7517555-c8c04cb45a49356e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/7517555-efc4b8270b4006d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>复制粘贴install的命令便可以安装库啦！</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/安装anaconda/" data-id="cjhpj0v9e0000g0v1dwx3nbpk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
