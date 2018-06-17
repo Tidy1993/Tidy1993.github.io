@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Welcome to my blog.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tidy1993&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Tidy1993&#39;s blog">
+<meta property="og:description" content="Welcome to my blog.">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tidy1993&#39;s blog">
+<meta name="twitter:description" content="Welcome to my blog.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title>Tidy1993's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+	<!--<a href="https://github.com/tidy1993" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+    <a href="https://github.com/tidy1993" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tidy1993's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/ /" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/用hexo搭建github博客详细全图解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tidy1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tidy1993's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/28/用hexo搭建github博客详细全图解/" itemprop="url">用hexo搭建github博客详细全图解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T08:39:43+08:00">
+                2018-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在交流中发现身边大佬们都有自己的博客主页，还有一位大佬买了自己的域名，看着就很高大上啊，赶紧注册了个GitHub帐号跟着大佬们一起玩儿更博，从折腾了差不多大半天，已经能成功更博到<a href="https://tidy1993.github.io/啦，美滋滋！废话不多说赶紧开始！" target="_blank" rel="noopener">https://tidy1993.github.io/啦，美滋滋！废话不多说赶紧开始！</a><br>在配置过程中出现过几个错误，综合了几个大神的帖子进行安装配置，如果我的某些叙述不清楚的话，大家可以看看这几个大佬的，写的都很详细哦！感谢分享！<br>参考博客如下：<br><a href="https://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">https://blog.csdn.net/gdutxiaoxu/article/details/53576018</a><br><a href="https://shirley5li.me/2017/08/06/hello-world/" target="_blank" rel="noopener">https://shirley5li.me/2017/08/06/hello-world/</a><br><a href="https://blog.csdn.net/weixin_39879178/article/details/80319392" target="_blank" rel="noopener">https://blog.csdn.net/weixin_39879178/article/details/80319392</a><br><a href="https://www.jianshu.com/p/b06222fbc135" target="_blank" rel="noopener">https://www.jianshu.com/p/b06222fbc135</a></p>
+<p>##1.node.js下载安装<br><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a><br>建议：官网下载最新版本，如果不是最新版本后面可能会提示版本太低<br><img src="https://upload-images.jianshu.io/upload_images/7517555-235d64a634f75d26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>一路默认，默认安装在C盘，安装完成之后cmd中输入<br><code>node  -v</code>查看是否安装成功和相应版本<br><img src="https://upload-images.jianshu.io/upload_images/7517555-61293c7f227301fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>##2.git下载安装<br><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a><br>建议：官网下载最新版本，如果不是最新版本后面可能会报错<br>同上默认安装<br><img src="https://upload-images.jianshu.io/upload_images/7517555-53cef64ff1f64e4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>按照下图进行选择，将会使得Git安装程序在系统PATH中加入Git的相关路径，使得你可以在CMD界面下调用Git，不用打开Git Bash了。<br><img src="https://upload-images.jianshu.io/upload_images/7517555-c1fd48f28d1e633d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>检查一下Git是不是安装正确了，打开命令行，输入：<br><img src="https://upload-images.jianshu.io/upload_images/7517555-54d9ea28ff027c37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>##3.github账户的注册和配置</p>
+<ul>
+<li>注册很简单，就用户名+邮箱+密码，然后邮箱验证哈，注意的是给自己取一个方便记住的用户名！</li>
+<li>配置：<br>####3.1创建代码库<br>选择New repository<br><img src="https://upload-images.jianshu.io/upload_images/7517555-f3159d4919e56c47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>在Repository name下填写<code>yourname.github.io</code>，Description (optional)下填写一些简单的描述（不写也没有关系），如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/7517555-f3e66a8ef6ef7aa0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>####3.2 代码库设置<br>正确创建之后，你将会看到如下界面：<br><img src="https://upload-images.jianshu.io/upload_images/7517555-b919f44f26ee25f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>点击界面右侧的Settings，你将会打开这个库的<code>setting</code>页面，向下拖动，直到看见GitHub Pages，如图：<br>这里我们需要点击<code>Choose a theme</code>任意选择一个选择主题，然后界面会跳转到仓库，我们看到有两个文件如下：<br><img src="https://upload-images.jianshu.io/upload_images/7517555-03c956531e141554.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-9ce4fc7f8e30f68f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>此时若再查看setting，我们会看到开启GitHub Pages之后得到的域名如下：<br><img src="https://upload-images.jianshu.io/upload_images/7517555-098e7b12f273afc7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>我们就可以使用<a href="https://dreamcoffeezs.github.io/" target="_blank" rel="noopener">https://UserName.github.io</a>，访问自己的博客网站了</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-c98d7ec53662e976.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>##4.安装和配置Hexo</p>
+<p>###4.1安装<br>在E盘或者其他盘的根目录下新建一个名为<code>hexo</code>的文件夹<br><img src="https://upload-images.jianshu.io/upload_images/7517555-0c65f1f51e8f3230.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>右键单击，单击<code>Git Bash Here</code>,打开git命令窗口中输入以下命令：<br><code>npm install hexo-cli -g</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-f33fe96abde3a301.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>####至此出现第1个问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm WARN engine hexo-fs@0.2.3: wanted:&#123;&quot;node &quot;:&quot;&gt;=6.9.0&quot;&#125;(current:&#123;&quot;node&quot;:&quot;4.2.3&quot;,&quot;npm&quot;:&quot;2.14.7&quot;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>提示node的版本不够，所以前面提示大家要安装比较新的版本！重新去官网下载然后安装！</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-4aa1daf1ec41c390.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-b58a751edba86ed5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>现在再来查看版本已经是<code>v10.2.0</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-30b495fda9cbd716.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>,然后再次<br><code>npm install hexo-cli -g</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-e118937cf680b82f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="19.png"></p>
+<p>#####至此出现第2个问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>很多人也貌似出现了这个问题，参考了好几个帖子：<br><a href="https://segmentfault.com/q/1010000008223855" target="_blank" rel="noopener">https://segmentfault.com/q/1010000008223855</a><br><a href="https://www.imooc.com/qadetail/177063" target="_blank" rel="noopener">https://www.imooc.com/qadetail/177063</a><br>我参照改了源,也不确定这个是否有用<br><code>npm config set registry https://registry.npm.taobao.org</code><br>然后输入<br><code>npm install hexo --save</code><br><code>hexo -v</code><br>然后看到如图，并不和其他帖子的hexo -v之后显示一样有<code>hexo:版本</code>，如果你的有这行，证明你安装对了，如果你的也没有，在接下来配置会尝试用一种方法解决！<br><img src="https://upload-images.jianshu.io/upload_images/7517555-2eb9b7efc68b32af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="别人的图.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-bdbf0214b1ba9050.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="我的图.png"></p>
+<p>###4.2配置</p>
+<p>###初始化<code>hexo init</code><br>目录是刚刚创建的hexo目录下！即<code>/e/hexo</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-bd8c128e349bb871.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="21.png"><br>再次查看，仍旧没有<code>hexo:</code>(如果你的有，请略过下面新建文件夹的步骤)<br><img src="https://upload-images.jianshu.io/upload_images/7517555-30c269f5a1cd4911.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="err2.png"><br>于是，在E盘重新建了一个文件夹<code>HexoBlog</code>,这个文件夹用来写后面需要发布的markdown文件，前面的<code>hexo</code>文件夹就当做安装目录吧！<br>切换到<code>cd /e/HexoBlog</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-37e3b3a8397f3834.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>然后接下来</p>
+<p>###初始化<figure class="highlight plain"><figcaption><span>init```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-46321441a3518801.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">###安装插件`npm install`</span><br><span class="line">如果npm install不能完全安装好，就参照下面的图，一个个自己安装吧！</span><br><span class="line">在此，引用一下一位仙女的笔记</span><br><span class="line">https://shirley5li.me/2017/08/06/hello-world/</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-730f9c4f6bc2c39c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">提前安装好应有的插件！不然可能后面会报错！</span><br><span class="line">###生成`hexo g`</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-ab28284cb3381c1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">-###运行server`hexo s`</span><br><span class="line">如果正确的话将会看到如下提示信息</span><br><span class="line">`INFO Hexo is running at [http://0.0.0.0:4000/](http://0.0.0.0:4000/). Press Ctrl+C to stop.`</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-bd42d0c89de1ba28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">在浏览器中打开[http://localhost:4000/](http://localhost:4000/)，你将会看到：</span><br><span class="line"></span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-fa0ec0eb069c1576.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">到目前为止，Hexo在本地的配置结束。</span><br><span class="line">##5.将Hexo与github page 联系起来</span><br><span class="line">###5.1配置git</span><br><span class="line">继续在`/e/HexoBlog`目录下，输入</span><br></pre></td></tr></table></figure></p>
+<p>git config –-global user.name “Tidy1993”  //(“”的账号是刚才Github里面自己注册的账号)<br>git config –-global user.email “<a href="mailto:354122535@qq.com" target="_blank" rel="noopener">354122535@qq.com</a>” //(“”的邮箱是你自己注册的邮箱)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">###5.2配置和测试SSH</span><br><span class="line">然后，切换到</span><br></pre></td></tr></table></figure></p>
+<p>cd ~/.ssh<br>ssh-keygen -t rsa -C “<a href="mailto:354122535@qq.com" target="_blank" rel="noopener">354122535@qq.com</a>” //打自己的邮箱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">按照下图，回车，然后输入自己登陆github的密码两次，直到生成图示</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-8a09b096bf8d3922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">去到C盘找到.ssh文件夹，打开`id rsa.pub`文件，复制里面代码</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-db37546263ef4c14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-ddcaf3aeebcc5790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-22cb7521c5b0f41d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-b9160d862cbcb4ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">把刚刚粘贴的密码粘贴到上面key中，点击`Add SSH key`</span><br><span class="line">测试ssh设置是否成功</span><br><span class="line">`ssh -T git@github.com `</span><br><span class="line">![image.png](https://upload-images.jianshu.io/upload_images/7517555-41d792ed28541926.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">###5.3 配置Deployment</span><br><span class="line">手动找到`/e/HexoBlog`目录下的`_config.yml`文件，然后右键点击，打开文件</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-714899c18f9397a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">在文件最后deploy：这里加上下面代码</span><br></pre></td></tr></table></figure></p>
+<p>deploy:<br>  type: git<br>  repo: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:Tidy1993/Tidy1993.github.io.git<br>  branch: master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">我的用户名是Tidy1993上面的yourname改成你自己的</span><br><span class="line">##6.写第一篇博客，同步到github</span><br><span class="line">继续在`/e/HexoBlog`目录下输入</span><br><span class="line">`hexo new post &quot;article title&quot;`</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-88b49eddde1af384.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">然后在对应的目录下，会生成对应的.md后缀的文件</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-8c269e52d0cab1bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">我还没用markdown的编辑器，暂时用notepad打开文件，然后前面---之间的内容不能删，title就是一会儿显示在github上的title,后期可以改，然后在第二个---之后键入内容，要用markdown语法！完了之后保存！</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-9d41f6a2b21ae76e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">回到git命令行中，输入</span><br></pre></td></tr></table></figure></p>
+<p>hexo g   // 生成<br>hexo s   // server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-57acac1eb1d0e24d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">在浏览器输入：`localhost:4000`在本地查看刚刚新建的md文件，在此可以看到已经在本地了</span><br><span class="line">![38.png](https://upload-images.jianshu.io/upload_images/7517555-d2b8da1f8359d711.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">回到git命令行中，输入</span><br></pre></td></tr></table></figure></p>
+<p>hexo d  // develop部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-e105340b97ac4669.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">- 如果这里运行 hexo d之后出现错误</span><br><span class="line">`ERROR Deployer not found: git`</span><br><span class="line">安装这个插件！</span><br><span class="line">`npm install --save hexo-deployer-git`</span><br><span class="line">正确运行的话会提示输入github密码</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-76deaa511344c3c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">正确之后会显示如下，表示成功同步到github帐号</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-507c0589b65e7e70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">在浏览器输入：`https://tidy1993.github.io`对应的github域名，就可以看到效果啦！</span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/7517555-2f41c4c79554f9c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">至此，终于有自己的github帐号并且有博啦！开心！虽然过程挺痛苦的！</span><br><span class="line"></span><br><span class="line">###总结一下出现的问题：</span><br><span class="line">- #### 问题1：</span><br><span class="line">`npm WARN engine hexo-fs@0.2.3: wanted:&#123;&quot;node &quot;:&quot;&gt;=6.9.0&quot;&#125;(current:&#123;&quot;node&quot;:&quot;4.2.3&quot;,&quot;npm&quot;:&quot;2.14.7&quot;&#125;)`</span><br><span class="line">提示node的版本不够，所以前面提示大家要安装比较新的版本！重新去官网下载然后安装！</span><br><span class="line">- ####问题2：</span><br></pre></td></tr></table></figure></p>
+<p>npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for <a href="mailto:fsevents@1.2.4" target="_blank" rel="noopener">fsevents@1.2.4</a>: wanted {“os”:”darwin”,”arch”:”any”} (current: {“os”:”win32”,”arch”:”x64”})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">很多人也貌似出现了这个问题，参考了好几个帖子：</span><br><span class="line">[https://segmentfault.com/q/1010000008223855](https://segmentfault.com/q/1010000008223855)</span><br><span class="line">[https://www.imooc.com/qadetail/177063](https://www.imooc.com/qadetail/177063)</span><br><span class="line">- ####问题3：</span><br><span class="line">如果输入hexo -v没能出现对应版本提示，新建个文件夹，记得在对应的目录下</span><br></pre></td></tr></table></figure></p>
+<p>npm install hexo-cli -g<br>npm install hexo –save<br>hexo -v<br>hexo init<br>npm install<br>hexo g<br>hexo s<br><code>`</code></p>
+<ul>
+<li>####问题4：<br>配置完git,记得配置SSH，在ssh配置时输入的密码是你登录github的密码，不要自己又重新设一个密码！</li>
+<li>####问题5：<br>配置development的时候，在自己建立的hexo文件夹下面找_config.yml文件，因为我先后建立了两次文件夹，所以我就改了两次，讲道理，应该只有hexo一个文件夹，下面需要改</li>
+<li>####问题6：<br>新建一个博客，必须在命令行中取名字，不能写好.md文件放在目录下而不执行<br><code>hexo new &quot;article title&quot;</code><br>完了之后必须<br><code>hexo g</code><br><code>hexo d</code><br><code>hexo s</code>不是必须的，只是为了在同步上去github之前在本地浏览一下是否合适，如果觉得没问题，可以忽略这一步，直接g和d.</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+
+	
+    
+
+	
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/安装anaconda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tidy1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tidy1993's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/27/安装anaconda/" itemprop="url">安装anaconda</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T20:43:19+08:00">
+                2018-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>####1.安装anaconda<br>使用anaconda直接默认安装了python和Numpy<br>anaconda下载地址：<br><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a><br>推荐在此下载，官网下载速度缓慢<br>选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的</p>
+<p>####2.测试<br>打开anaconda prompt，相当于Windows中的cmd<br><img src="http://upload-images.jianshu.io/upload_images/7517555-bbe86e7a753397f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>输入<code>conda list</code><br>显示anaconda默认安装好的库，如果能出现下列显示说明anaconda安装成功啦<br><img src="http://upload-images.jianshu.io/upload_images/7517555-a7856f2c9042fb84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>####3.打开notebook<br>启动了浏览器版本的编辑器，可以分模块run,但是不能debug,需要debug时需要用其他编辑器<br><img src="http://upload-images.jianshu.io/upload_images/7517555-ac407ddcde5f231a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/7517555-db46456bbd36d8ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>####4.安装其他库</p>
+<ul>
+<li>搜索某个库的课安装包<br>输入<code>anaconda search -t conda tensorflow</code><br>得到很多版本的包，选择匹配系统的相应版本<br><img src="http://upload-images.jianshu.io/upload_images/7517555-0b3e7e083decff77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><ul>
+<li>显示安装包的命令<br>输入<code>anaconda show 相应版本名字</code><br><img src="http://upload-images.jianshu.io/upload_images/7517555-c8c04cb45a49356e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/7517555-efc4b8270b4006d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>复制粘贴install的命令便可以安装库啦！</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+
+	
+    
+
+	
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Tidy1993" />
+            
+              <p class="site-author-name" itemprop="name">Tidy1993</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tidy1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/63ce19c421ab" target="_blank" title="����">
+                      
+                        <i class="fa fa-fw fa-book-heart"></i>����</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tidy1993</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- ҳ����С���� -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
