@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vscode,c++," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="听闻visual studio code很方便，今天早上为了在上面打段代码，便跟着几个帖子开始配环境：本文综合下述帖子得来：知乎：https://www.zhihu.com/question/30315894CSDN:先建cpp再跟着配置文件https://blog.csdn.net/zjwengyidong/article/details/53789533博客园：先新建配置文件再建cpp调试ht">
+<meta name="keywords" content="vscode,c++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode安装，配置，编译运行C++（详细整理）">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/essay/VSCode安装，配置，编译运行C-（详细整理）/index.html">
+<meta property="og:site_name" content="Tidy1993&#39;s blog">
+<meta property="og:description" content="听闻visual studio code很方便，今天早上为了在上面打段代码，便跟着几个帖子开始配环境：本文综合下述帖子得来：知乎：https://www.zhihu.com/question/30315894CSDN:先建cpp再跟着配置文件https://blog.csdn.net/zjwengyidong/article/details/53789533博客园：先新建配置文件再建cpp调试ht">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-4accfd4512988489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-83dd33adce998ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-06ced5a09a0da0fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-6efa6289010f57d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-e3140d6098977e58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-10b73ac2ff2178e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-6bf869273c97acf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-9f138b6d3eb6f8f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-c126ff929dcd3ed5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-8ff68a5ba7e8e6f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-eefe5744d9c90736.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-17caeb91ddf0188a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-db3f3c2a95f0e543.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-e99bc9f9794e6194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-18T12:01:50.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VSCode安装，配置，编译运行C++（详细整理）">
+<meta name="twitter:description" content="听闻visual studio code很方便，今天早上为了在上面打段代码，便跟着几个帖子开始配环境：本文综合下述帖子得来：知乎：https://www.zhihu.com/question/30315894CSDN:先建cpp再跟着配置文件https://blog.csdn.net/zjwengyidong/article/details/53789533博客园：先新建配置文件再建cpp调试ht">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7517555-4accfd4512988489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/18/essay/VSCode安装，配置，编译运行C-（详细整理）/"/>
+
+
+
+
+
+  <title>VSCode安装，配置，编译运行C++（详细整理） | Tidy1993's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	<!--<a href="https://github.com/tidy1993" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+    <a href="https://github.com/tidy1993" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tidy1993's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/18/essay/VSCode安装，配置，编译运行C-（详细整理）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tidy1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tidy1993's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VSCode安装，配置，编译运行C++（详细整理）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-18T19:45:37+08:00">
+                2018-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/essay/" itemprop="url" rel="index">
+                    <span itemprop="name">essay</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>听闻visual studio code很方便，今天早上为了在上面打段代码，便跟着几个帖子开始配环境：<br>本文综合下述帖子得来：<br>知乎：<a href="https://www.zhihu.com/question/30315894" target="_blank" rel="noopener">https://www.zhihu.com/question/30315894</a><br>CSDN:先建cpp再跟着配置文件<a href="https://blog.csdn.net/zjwengyidong/article/details/53789533" target="_blank" rel="noopener">https://blog.csdn.net/zjwengyidong/article/details/53789533</a><br>博客园：先新建配置文件再建cpp调试<br><a href="https://www.cnblogs.com/lkpp/p/vscode-cpp.html" target="_blank" rel="noopener">https://www.cnblogs.com/lkpp/p/vscode-cpp.html</a></p>
+<a id="more"></a>
+<p>上述二者都比较简洁，其中关于文件夹和环境配置的我又从下面2帖得到：<br>百度：Win7 64位下安装配置mingw-w64 C++开发<br><a href="https://jingyan.baidu.com/article/19192ad816ea01e53e570730.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/19192ad816ea01e53e570730.html</a><br>CSDN:这位大神就写的比较详细了，如果觉得我的不够详细，强烈推荐看这位大神的<br><a href="https://blog.csdn.net/bat67/article/details/76095813" target="_blank" rel="noopener">https://blog.csdn.net/bat67/article/details/76095813</a><br>开始安装和配置VScode,问题还是很多滴，下面来从最基本的开始：<br>步骤<br>1.安装VSCode<br>2.在VSCode内安装c++插件<br>3.安装编译、调试环境<br>4.修改VSCode调试配置文件</p>
+<h1 id="1-安装VSCode"><a href="#1-安装VSCode" class="headerlink" title="1.安装VSCode"></a>1.安装VSCode</h1><p>下载地址：<a href="https://code.visualstudio.com/?utm_expid=101350005-25.TcgI322oRoCwQD7KJ5t8zQ.0" target="_blank" rel="noopener">https://code.visualstudio.com/?utm_expid=101350005-25.TcgI322oRoCwQD7KJ5t8zQ.0</a><br>选择适合自己系统的下载之后安装就行</p>
+<blockquote>
+<p>注意1：安装的时候一定要注意，选择自定义路径还是默认的，我选择了自定义的，导致后面配置文件费了很多时间，在此建议大家默认C盘就好</p>
+</blockquote>
+<h1 id="2-在VSCode内安装c-插件"><a href="#2-在VSCode内安装c-插件" class="headerlink" title="2.在VSCode内安装c++插件"></a>2.在VSCode内安装c++插件</h1><p>打开VScode,在左侧一栏，最下面一个–&gt;扩展，然后输入C++,然后点击安装，安装之后重启生效<br><img src="https://upload-images.jianshu.io/upload_images/7517555-4accfd4512988489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="111.png"></p>
+<h1 id="3-安装编译、调试环境"><a href="#3-安装编译、调试环境" class="headerlink" title="3.安装编译、调试环境"></a>3.安装编译、调试环境</h1><p>安装和配置MinGW<br>目前windows下调试仅支持 Cygwin 和 MinGW。看大部分帖子均推荐使用MinGW. </p>
+<ul>
+<li><h2 id="3-1下载地址："><a href="#3-1下载地址：" class="headerlink" title="3.1下载地址："></a>3.1下载地址：</h2><p><a href="http://mingw-w64.org/doku.php/download" target="_blank" rel="noopener">http://mingw-w64.org/doku.php/download</a><br><img src="https://upload-images.jianshu.io/upload_images/7517555-83dd33adce998ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><h2 id="3-2下载之后安装以及配置系统路径"><a href="#3-2下载之后安装以及配置系统路径" class="headerlink" title="3.2下载之后安装以及配置系统路径"></a>3.2下载之后安装以及配置系统路径</h2><p>这里我是默认的<br><img src="https://upload-images.jianshu.io/upload_images/7517555-06ced5a09a0da0fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><h2 id="3-3配置mingw-w64环境变量："><a href="#3-3配置mingw-w64环境变量：" class="headerlink" title="3.3配置mingw-w64环境变量："></a>3.3配置mingw-w64环境变量：</h2><blockquote>
+<p>注意2：在此建议大家先把自己安装mingw-w64的路径找正确，一直浏览到含bin的文件目录下，然后复制</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-6efa6289010f57d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li><p>在桌面找到我的电脑图标-&gt;右键-&gt;属性-&gt;高级系统设置-&gt;选择“高级”选项-&gt;选择下面“环境变量”-&gt;Administrator 的用户变量，在path中新增安装mingw-w64的路径：<code>盘符:你的安装路径\mingw64\bin;</code><br>在此我的安装路径是：E:\Program Files (x86)\mingw-w64\i686-7.3.0-posix-dwarf-rt_v5-rev0\mingw32\bin；所以我添加到path的就是这个路径<br><img src="https://upload-images.jianshu.io/upload_images/7517555-e3140d6098977e58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/7517555-10b73ac2ff2178e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><h2 id="3-4-验证mingw-w64是否安装配置成功"><a href="#3-4-验证mingw-w64是否安装配置成功" class="headerlink" title="3.4 验证mingw-w64是否安装配置成功"></a>3.4 验证mingw-w64是否安装配置成功</h2><p>环境变量配置好之后，最好重启电脑；<br>然后打开命令框cmd输入：gcc -v<br>显示如下信息 表示安装配置成功<br><img src="https://upload-images.jianshu.io/upload_images/7517555-6bf869273c97acf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="4-修改VSCode调试配置文件"><a href="#4-修改VSCode调试配置文件" class="headerlink" title="4.修改VSCode调试配置文件"></a>4.修改VSCode调试配置文件</h1><h2 id="4-1新建文件夹"><a href="#4-1新建文件夹" class="headerlink" title="4.1新建文件夹"></a>4.1新建文件夹</h2><p>打开vscode,文件–&gt;打开文件夹–&gt;右键–&gt;新建文件夹–&gt;VS-Code-C<br>解释：安装好vscode会在文档下面默认生成个vscode的文件夹，但是这个文件夹下面可能以后会有多种语言的代码，所以建议生成对应语言的子文件夹，比如打算写C就新建VS-Code-C这个文件夹<br><img src="https://upload-images.jianshu.io/upload_images/7517555-9f138b6d3eb6f8f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="4-2再新建-vscode文件夹"><a href="#4-2再新建-vscode文件夹" class="headerlink" title="4.2再新建.vscode文件夹"></a>4.2再新建.vscode文件夹</h2><p>然后，在VScode中打开刚刚新建的VS-Code-C这个文件夹，在这个文件夹下，新建.vscode文件夹（点是需要的）</p>
+<blockquote>
+<p>注意3：因为VS需要为每一个文件夹做单独配置，所以建议把.vscode文件夹放到你常用的文件夹的顶层，这样就不用重复配置了。不用每个新cpp文件就要一套配置。这些配置在你配置好的文件夹内的所有子文件夹和文件都能使用</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-c126ff929dcd3ed5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="4-3新建三个配置文件"><a href="#4-3新建三个配置文件" class="headerlink" title="4.3新建三个配置文件"></a>4.3新建三个配置文件</h2><p>然后在.vscode这个文件夹下面，新建三个配置文件，每次都是新建，然后代码如下，然后另存为相应的格式<br><img src="https://upload-images.jianshu.io/upload_images/7517555-8ff68a5ba7e8e6f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p> 注意4：”miDebuggerPath”中miDebugger的路径，注意这里要与MinGw的路径对应<br> 注意5 ：miDebuggerPath是\，与直接粘贴过来的路径不一样，需要加一个”\”（冒号后面的两个反斜杠“\”）</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-eefe5744d9c90736.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="launch-json"><a href="#launch-json" class="headerlink" title="launch.json"></a>launch.json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C++ Launch (GDB)&quot;,                 // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,                           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,                        // 请求配置类型，可以为launch（启动）或attach（附加）</span><br><span class="line">            &quot;launchOptionType&quot;: &quot;Local&quot;,                // 调试器启动类型，这里只能为Local</span><br><span class="line">            &quot;targetArchitecture&quot;: &quot;x86&quot;,                // 生成目标架构，一般为x86或x64，可以为x86, arm, arm64, mips, x64, amd64, x86_64</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;file&#125;.exe&quot;,                   // 将要进行调试的程序的路径</span><br><span class="line">            &quot;miDebuggerPath&quot;:&quot;c:\\MinGW\\bin\\gdb.exe&quot;, // miDebugger的路径，注意这里要与MinGw的路径对应</span><br><span class="line">            &quot;args&quot;: [&quot;blackkitty&quot;,  &quot;1221&quot;, &quot; &quot;],     // 程序调试时传递给程序的命令行参数，一般设为空即可</span><br><span class="line">            &quot;stopAtEntry&quot;: false,                       // 设为true时程序将暂停在程序入口处，一般设置为false</span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;,                  // 调试程序时的工作目录，一般为$&#123;workspaceRoot&#125;即代码所在目录</span><br><span class="line">            &quot;externalConsole&quot;: true,                    // 调试时是否显示控制台窗口，一般设置为true显示控制台</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;g++&quot;　　                  // 调试会话开始前执行的任务，一般为编译程序，c++为g++, c为gcc</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="tasks-json"><a href="#tasks-json" class="headerlink" title="tasks.json"></a>tasks.json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">    &quot;command&quot;: &quot;g++&quot;,</span><br><span class="line">    &quot;args&quot;: [&quot;-g&quot;,&quot;$&#123;file&#125;&quot;,&quot;-o&quot;,&quot;$&#123;file&#125;.exe&quot;],    // 编译命令参数</span><br><span class="line">    &quot;problemMatcher&quot;: &#123;</span><br><span class="line">        &quot;owner&quot;: &quot;cpp&quot;,</span><br><span class="line">        &quot;fileLocation&quot;: [&quot;relative&quot;, &quot;$&#123;workspaceRoot&#125;&quot;],</span><br><span class="line">        &quot;pattern&quot;: &#123;</span><br><span class="line">            &quot;regexp&quot;: &quot;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&quot;,</span><br><span class="line">            &quot;file&quot;: 1,</span><br><span class="line">            &quot;line&quot;: 2,</span><br><span class="line">            &quot;column&quot;: 3,</span><br><span class="line">            &quot;severity&quot;: 4,</span><br><span class="line">            &quot;message&quot;: 5</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceRoot&#125;&quot;,</span><br><span class="line">                &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++&quot;,</span><br><span class="line">                &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/x86_64-w64-mingw32&quot;,</span><br><span class="line">                &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/backward&quot;,</span><br><span class="line">                &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include&quot;,</span><br><span class="line">                &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/tr1&quot;,</span><br><span class="line">                &quot;C:/mingw-w64/x86_64-w64-mingw32/include&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;__GNUC__=6&quot;,</span><br><span class="line">                &quot;__cdecl=__attribute__((__cdecl__))&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;msvc-x64&quot;,</span><br><span class="line">            &quot;browse&quot;: &#123;</span><br><span class="line">                &quot;path&quot;: [</span><br><span class="line">                    &quot;$&#123;workspaceRoot&#125;&quot;,</span><br><span class="line">                    &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++&quot;,</span><br><span class="line">                    &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/x86_64-w64-mingw32&quot;,</span><br><span class="line">                    &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/backward&quot;,</span><br><span class="line">                    &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include&quot;,</span><br><span class="line">                    &quot;C:/mingw-w64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/tr1&quot;,</span><br><span class="line">                    &quot;C:/mingw-w64/x86_64-w64-mingw32/include&quot;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;limitSymbolsToIncludedHeaders&quot;: true,</span><br><span class="line">            &quot;databaseFilename&quot;: &quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我自己换了路径，一定要保证换到自己安装的对应路径下面，不要粘贴复制过去就不管啦<br><img src="https://upload-images.jianshu.io/upload_images/7517555-17caeb91ddf0188a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="4-4-新建-app文件"><a href="#4-4-新建-app文件" class="headerlink" title="4.4  新建*.app文件"></a>4.4  新建*.app文件</h2><p>上述三个配置文件配置好之后保存，然后在.vscode文件夹外面，新建一个a.cpp </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line">   using namespace std;</span><br><span class="line"></span><br><span class="line">   int main()</span><br><span class="line">   &#123;</span><br><span class="line">       cout&lt;&lt;&quot;Hello World!&quot;&lt;&lt;endl;</span><br><span class="line">       return 0;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>在return那一行添加断点，点击左侧倒数第二个调试，再点击左边调试栏上方的设置按钮，选择c++编译环境，点击绿色图标进行调试，如果各种配置成功，就会出现如下效果啦！调试也可以按F5<br><img src="https://upload-images.jianshu.io/upload_images/7517555-db3f3c2a95f0e543.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-e99bc9f9794e6194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
+      
+    </div>
+    
+    
+    
+	
+
+	
+    
+
+	
+	
+	<div>
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------���Ľ���<i class="fa fa-paw"></i>��л�����Ķ�-------------</div>
+    
+</div>
+	</div>
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vscode/" rel="tag"># vscode</a>
+          
+            <a href="/tags/c/" rel="tag"># c++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/18/mechine learning/2-jupyter入门操作/" rel="next" title="2.jupyter入门操作">
+                <i class="fa fa-chevron-left"></i> 2.jupyter入门操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Tidy1993" />
+            
+              <p class="site-author-name" itemprop="name">Tidy1993</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tidy1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/63ce19c421ab" target="_blank" title="JianShu">
+                      
+                        <i class="fa fa-fw fa-github"></i>JianShu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-安装VSCode"><span class="nav-text">1.安装VSCode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-在VSCode内安装c-插件"><span class="nav-text">2.在VSCode内安装c++插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-安装编译、调试环境"><span class="nav-text">3.安装编译、调试环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1下载地址："><span class="nav-text">3.1下载地址：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2下载之后安装以及配置系统路径"><span class="nav-text">3.2下载之后安装以及配置系统路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3配置mingw-w64环境变量："><span class="nav-text">3.3配置mingw-w64环境变量：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-验证mingw-w64是否安装配置成功"><span class="nav-text">3.4 验证mingw-w64是否安装配置成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-修改VSCode调试配置文件"><span class="nav-text">4.修改VSCode调试配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1新建文件夹"><span class="nav-text">4.1新建文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2再新建-vscode文件夹"><span class="nav-text">4.2再新建.vscode文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3新建三个配置文件"><span class="nav-text">4.3新建三个配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#launch-json"><span class="nav-text">launch.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tasks-json"><span class="nav-text">tasks.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-cpp-properties-json"><span class="nav-text">c_cpp_properties.json</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-新建-app文件"><span class="nav-text">4.4  新建*.app文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tidy1993</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- ҳ����С���� -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

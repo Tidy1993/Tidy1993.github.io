@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Ubuntu16.04,pybombs,GNU," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在ubuntu系统上安装GNU，之前使用命令行的方式费事费力，现在采用pybombs（Python Build Overlay Managed Bundle System) 是 GNU Radio 的包管理系统。pybombs是封装好的自动程序，会自动下载源码包然后编译安装，过程中会自己下载依赖包，比自己下载源码编译安装省事很多。官网https://github.com/gnuradio/pybo">
+<meta name="keywords" content="Ubuntu16.04,pybombs,GNU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8.ubuntu16.04使用pybombs安装GNU">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/Ubuntu16.04/8-ubuntu16-04使用pybombs安装GNU/index.html">
+<meta property="og:site_name" content="Tidy1993&#39;s blog">
+<meta property="og:description" content="在ubuntu系统上安装GNU，之前使用命令行的方式费事费力，现在采用pybombs（Python Build Overlay Managed Bundle System) 是 GNU Radio 的包管理系统。pybombs是封装好的自动程序，会自动下载源码包然后编译安装，过程中会自己下载依赖包，比自己下载源码编译安装省事很多。官网https://github.com/gnuradio/pybo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-3a6137b9d7038d8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-066619a897fc660d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-cbf4898c7bfc53c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-e2b36a054a449c77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-a6e9bfdda9811b0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-5755a825c9d0f6f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-e61bfb46ba7056bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-7a4e4da139c05cd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-d0654a649c66d113.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-8f97997cfdc4a4e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-18T10:51:38.130Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="8.ubuntu16.04使用pybombs安装GNU">
+<meta name="twitter:description" content="在ubuntu系统上安装GNU，之前使用命令行的方式费事费力，现在采用pybombs（Python Build Overlay Managed Bundle System) 是 GNU Radio 的包管理系统。pybombs是封装好的自动程序，会自动下载源码包然后编译安装，过程中会自己下载依赖包，比自己下载源码编译安装省事很多。官网https://github.com/gnuradio/pybo">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7517555-3a6137b9d7038d8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/18/Ubuntu16.04/8-ubuntu16-04使用pybombs安装GNU/"/>
+
+
+
+
+
+  <title>8.ubuntu16.04使用pybombs安装GNU | Tidy1993's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	<!--<a href="https://github.com/tidy1993" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+    <a href="https://github.com/tidy1993" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tidy1993's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/18/Ubuntu16.04/8-ubuntu16-04使用pybombs安装GNU/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tidy1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tidy1993's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">8.ubuntu16.04使用pybombs安装GNU</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-18T18:49:48+08:00">
+                2018-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/System/" itemprop="url" rel="index">
+                    <span itemprop="name">System</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/System/Ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在ubuntu系统上安装GNU，之前使用命令行的方式费事费力，现在采用pybombs（Python Build Overlay Managed Bundle System) 是 <a href="http://gnuradio.org/" target="_blank" rel="noopener">GNU Radio</a> 的包管理系统。pybombs是封装好的自动程序，会自动下载源码包然后编译安装，过程中会自己下载依赖包，比自己下载源码编译安装省事很多。官网<a href="https://github.com/gnuradio/pybombs" target="_blank" rel="noopener">https://github.com/gnuradio/pybombs</a><br>为了使用Pybombs安装上GNU并且插入USRP能检测到和运行，我参考了下面链接帖子的安装方法，再整理了下，感谢原创的分享：<br><a href="http://www.freebuf.com/articles/wireless/119950.html" target="_blank" rel="noopener">http://www.freebuf.com/articles/wireless/119950.html</a><br><a href="http://blog.csdn.net/segments/article/details/51991831" target="_blank" rel="noopener">http://blog.csdn.net/segments/article/details/51991831</a><br><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pybombs/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/pybombs/</a></p>
+<a id="more"></a>
+<h1 id="1-安装和更新pip"><a href="#1-安装和更新pip" class="headerlink" title="1.安装和更新pip"></a>1.安装和更新pip</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br><span class="line">sudo pip install -U pip</span><br></pre></td></tr></table></figure>
+<h1 id="2-安装pybombs"><a href="#2-安装pybombs" class="headerlink" title="2.安装pybombs"></a>2.安装pybombs</h1><p><code>sudo pip install pybombs</code><br>如果你想要从git上安装最新版本，使用下面命令<br><code>sudo pip install --upgrade git+https://github.com/gnuradio/pybombs.git</code></p>
+<h1 id="3-获取安装库"><a href="#3-获取安装库" class="headerlink" title="3.获取安装库"></a>3.获取安装库</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pybombs recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git</span><br><span class="line"></span><br><span class="line">pybombs recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git</span><br></pre></td></tr></table></figure>
+<p>但是由于这里是境外网站在线安装可能会很慢很慢，所以也可以采用清华大学的镜像源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pybombs recipes add gr-recipes git+https://mirrors.tuna.tsinghua.edu.cn/pybombs/recipes/gr-recipes.git</span><br><span class="line">pybombs recipes add gr-etcetera git+https://mirrors.tuna.tsinghua.edu.cn/pybombs/recipes/gr-etcetera.git</span><br></pre></td></tr></table></figure></p>
+<p>默认会安装很多组件，如果安装到中途断了，再用上面的命令无法执行怎么办？<br>可以删掉/usr/local下的.pybombs，然后整个重新安装，提示配置文件直接覆盖就行，如果只是个别组件导致的中断，可以先用pybombs卸载该组件，再重新安装，比如安装rtl-sdr出错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pybombs remove rtl-sdr</span><br><span class="line"></span><br><span class="line">pybombs install rtl-sdr</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-设置安装路径"><a href="#4-设置安装路径" class="headerlink" title="4.设置安装路径"></a>4.设置安装路径</h1><p>安装到/usr/local目录，安装目录下会有.pybombs目录，配置文件保存在用户目录的.pybombs文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pybombs prefix init /usr/local -a myprefix -R gnuradio-default</span><br></pre></td></tr></table></figure>
+<p>当然，也可以安装在主目录下：<br><code>pybombs prefix init ~/prefix -a myprefix -R gnuradio-default</code><br>之后的所有命令将使用myprefix作为默认前缀。 你可以稍后通过运行<br><code>pybombs config default_prefix NEWPREFIX</code><br>更改默认前缀</p>
+<h1 id="5-安装UHD-GNURadio和其他包"><a href="#5-安装UHD-GNURadio和其他包" class="headerlink" title="5.安装UHD,GNURadio和其他包"></a>5.安装UHD,GNURadio和其他包</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pybombs install uhd gnuradio</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+<p>安装完成后检查组件，再加上一些没有自动安装的组件：<br><code>pybombs install osmo-sdr  rtl-sdr gnuradio dump1090 hackrf bladeRF airspy gr-iqbal libosmo-dsp gr-osmosdr gqrx</code></p>
+<h1 id="6-下载USRP镜像"><a href="#6-下载USRP镜像" class="headerlink" title="6.下载USRP镜像"></a>6.下载USRP镜像</h1><p>使用pybombs安装完UHD（USRP Hardware Driver）后还需下载固件镜像以及FPGA镜像，执行：<br><code>python  /usr/local/lib/uhd/utils/uhd_images_downloader.py</code><br>如果前面4设置安装路径的时候设置的不是/usr/local而是主目录，那么这里就要切换到：<br><code>/home/用户名/prefix/lib/utils/uhd_images_downloader.py</code></p>
+<p><em>这里需要注意的是，uhd_images_downloader.py文件里面会有下载的image 的版本，应该是可以更改的，不过UHD的版本一定要和image的版本匹配！</em></p>
+<h1 id="7-新建网络"><a href="#7-新建网络" class="headerlink" title="7.新建网络"></a>7.新建网络</h1><p><img src="http://upload-images.jianshu.io/upload_images/7517555-3a6137b9d7038d8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Screenshot from 2017-08-28 08-35-45.png"><br>点击’add’</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7517555-066619a897fc660d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Screenshot from 2017-08-28 08-36-23.png"><br>选择’ethernet’</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7517555-cbf4898c7bfc53c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Screenshot from 2017-08-28 08-37-13.png"><br>配置相关信息，DEVICE选择默认的</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7517555-e2b36a054a449c77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Screenshot from 2017-08-28 08-37-59.png"><br>IPV4的method选择’manual’<br>添加设备地址等信息</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7517555-a6e9bfdda9811b0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Screenshot from 2017-08-28 08-39-03.png"><br>我们的USRP默认物理地址是<br>address=192.168.10.1<br>netmask=255.255.255.0<br>gateway=0.0.0.0<br>然后‘save’</p>
+<h1 id="8-检测USRP是否载入成功"><a href="#8-检测USRP是否载入成功" class="headerlink" title="8.检测USRP是否载入成功"></a>8.检测USRP是否载入成功</h1><p>插入USRP（如果是笔记本用一根网线就可以连接上啦)，然后记得给USRP上电！<br>桌面会提示’USRP’网络已经连接上</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7517555-5755a825c9d0f6f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>使用终端<br><code>uhd_find_devices</code><br>如果能找到设备信息，说明USRP检测成功</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7517555-e61bfb46ba7056bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="9-将程序烧入USRP"><a href="#9-将程序烧入USRP" class="headerlink" title="9.将程序烧入USRP"></a>9.将程序烧入USRP</h1><p><img src="http://upload-images.jianshu.io/upload_images/7517555-7a4e4da139c05cd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><code>uhd_find_devices</code>查询硬件信息，可以看到USRP的地址为：192.168.10.2<br>然后切换到安装目录<br><code>cd /usr/share/uhd/images</code><br>上述安装目录应该不会影响到这个目录，无论什么安装目录，最终应生成这个目录才算成功，该目录下应该要有usrp_x310_fpga_HGS.bit这些个文件<br>然后执行<br><code>usrp_x3xx_fpga_burner --addr=192.168.10.2</code><br>你的硬件地址是什么这里就改成什么</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7517555-d0654a649c66d113.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>然后显示写入进程，说明写入成功</p>
+<h1 id="10-测试是否安装成功"><a href="#10-测试是否安装成功" class="headerlink" title="10.测试是否安装成功"></a>10.测试是否安装成功</h1><p>在终端调用下测试小程序，比如写入<br><code>uhd_fft -f 100M</code><br>然后执行，就可以得到下图<br><img src="http://upload-images.jianshu.io/upload_images/7517555-8f97997cfdc4a4e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="x"></p>
+<p>安装完成后，执行环境变量脚本，然后执行gnuradio-companion就能打开界面，gnuradio-config-info可以查看版本修改配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line"></span><br><span class="line">. ./setup_env.sh</span><br><span class="line"></span><br><span class="line">gnuradio-config-info -v</span><br><span class="line"></span><br><span class="line">gnuradio-companion</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+	
+
+	
+    
+
+	
+	
+	<div>
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------���Ľ���<i class="fa fa-paw"></i>��л�����Ķ�-------------</div>
+    
+</div>
+	</div>
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu16-04/" rel="tag"># Ubuntu16.04</a>
+          
+            <a href="/tags/pybombs/" rel="tag"># pybombs</a>
+          
+            <a href="/tags/GNU/" rel="tag"># GNU</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/18/Ubuntu16.04/7-ubuntu16-04安装python/" rel="next" title="7.ubuntu16.04安装python">
+                <i class="fa fa-chevron-left"></i> 7.ubuntu16.04安装python
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/18/Ubuntu16.04/Ubuntu16-04虚拟机蓝屏/" rel="prev" title="Ubuntu16.04虚拟机蓝屏">
+                Ubuntu16.04虚拟机蓝屏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Tidy1993" />
+            
+              <p class="site-author-name" itemprop="name">Tidy1993</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tidy1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/63ce19c421ab" target="_blank" title="JianShu">
+                      
+                        <i class="fa fa-fw fa-github"></i>JianShu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-安装和更新pip"><span class="nav-text">1.安装和更新pip</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-安装pybombs"><span class="nav-text">2.安装pybombs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-获取安装库"><span class="nav-text">3.获取安装库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-设置安装路径"><span class="nav-text">4.设置安装路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-安装UHD-GNURadio和其他包"><span class="nav-text">5.安装UHD,GNURadio和其他包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-下载USRP镜像"><span class="nav-text">6.下载USRP镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-新建网络"><span class="nav-text">7.新建网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-检测USRP是否载入成功"><span class="nav-text">8.检测USRP是否载入成功</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-将程序烧入USRP"><span class="nav-text">9.将程序烧入USRP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-测试是否安装成功"><span class="nav-text">10.测试是否安装成功</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tidy1993</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- ҳ����С���� -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
