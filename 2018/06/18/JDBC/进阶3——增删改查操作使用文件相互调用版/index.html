@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jdbc,JAVA,Mysql," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="趁热打铁，继续学习JDBC，今天早上找了个例子http://outofmemory.cn/code-snippet/16682/control-project-to-data-library-to把增删改查的操作在一个例子里面调通了，记录下注意事项：">
+<meta name="keywords" content="jdbc,JAVA,Mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进阶3——增删改查操作使用文件相互调用版">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/JDBC/进阶3——增删改查操作使用文件相互调用版/index.html">
+<meta property="og:site_name" content="Tidy1993&#39;s blog">
+<meta property="og:description" content="趁热打铁，继续学习JDBC，今天早上找了个例子http://outofmemory.cn/code-snippet/16682/control-project-to-data-library-to把增删改查的操作在一个例子里面调通了，记录下注意事项：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-43d605494a842d7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-2cc6ed452f82e802.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-4bce9bf5bd2a0b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-da1abad689870da0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-18T08:44:09.585Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="进阶3——增删改查操作使用文件相互调用版">
+<meta name="twitter:description" content="趁热打铁，继续学习JDBC，今天早上找了个例子http://outofmemory.cn/code-snippet/16682/control-project-to-data-library-to把增删改查的操作在一个例子里面调通了，记录下注意事项：">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7517555-43d605494a842d7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/18/JDBC/进阶3——增删改查操作使用文件相互调用版/"/>
+
+
+
+
+
+  <title>进阶3——增删改查操作使用文件相互调用版 | Tidy1993's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	<!--<a href="https://github.com/tidy1993" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+    <a href="https://github.com/tidy1993" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tidy1993's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/18/JDBC/进阶3——增删改查操作使用文件相互调用版/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tidy1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tidy1993's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">进阶3——增删改查操作使用文件相互调用版</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-18T16:37:38+08:00">
+                2018-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/Mysql/JDBC/" itemprop="url" rel="index">
+                    <span itemprop="name">JDBC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>趁热打铁，继续学习JDBC，今天早上找了个例子<br><a href="http://outofmemory.cn/code-snippet/16682/control-project-to-data-library-to" target="_blank" rel="noopener">http://outofmemory.cn/code-snippet/16682/control-project-to-data-library-to</a><br>把增删改查的操作在一个例子里面调通了，记录下注意事项：</p>
+<a id="more"></a>
+<h1 id="1-在eclipse中新建三个文件"><a href="#1-在eclipse中新建三个文件" class="headerlink" title="1.在eclipse中新建三个文件"></a>1.在eclipse中新建三个文件</h1><p>文件1：<strong>Test.java</strong>(这个是个主文件)<br>文件2：<strong>Handle.java</strong>（Test里面会调用Handle）<br>文件3：<strong>TestConnection.java</strong>(Handle里面会调用TestConnection)<br><img src="https://upload-images.jianshu.io/upload_images/7517555-43d605494a842d7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>注意：类名和文件名必须保持一致！<br>代码是根据链接代码修改排除package和import之类问题的代码：</p>
+<h2 id="Test-java"><a href="#Test-java" class="headerlink" title="Test.java"></a><strong>Test.java</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">package database_20;</span><br><span class="line"></span><br><span class="line">import java.util.Scanner;</span><br><span class="line">/**</span><br><span class="line"> * 测试类</span><br><span class="line"> * @author Administrator</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public class Test &#123;</span><br><span class="line">    private static Scanner sc;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;欢迎光临：&quot;);</span><br><span class="line">	//输出选项</span><br><span class="line">      System.out.println(&quot;1：查询    2：更新     3：插入   4：删除   5：退出&quot;);</span><br><span class="line">      System.out.println(&quot;你想干什么？   请选择：&quot;);</span><br><span class="line">      sc = new Scanner(System.in);</span><br><span class="line">      //实例化数据操作类Handle</span><br><span class="line">      Handle hd = new Handle();</span><br><span class="line"> </span><br><span class="line">      int type = sc.nextInt();</span><br><span class="line">      /**</span><br><span class="line">       * 判断用户选择操作的项</span><br><span class="line">       */</span><br><span class="line">      switch(type)&#123;</span><br><span class="line">      case 1:</span><br><span class="line">          //调用Handle查询方法</span><br><span class="line">          hd.query();</span><br><span class="line">      System.out.println(&quot;查询完成！&quot;);</span><br><span class="line">      	</span><br><span class="line">          break;</span><br><span class="line">      case 2:</span><br><span class="line">          //更新</span><br><span class="line">          hd.update();</span><br><span class="line">          System.out.println(&quot;更新完成！&quot;);</span><br><span class="line">          </span><br><span class="line">          break;</span><br><span class="line">      case 3:</span><br><span class="line">          //插入</span><br><span class="line">          hd.insert();</span><br><span class="line">          System.out.println(&quot;插入完成！&quot;);</span><br><span class="line"> </span><br><span class="line">          break;</span><br><span class="line">      case 4:</span><br><span class="line">          //删除</span><br><span class="line">          hd.delete();</span><br><span class="line">          System.out.println(&quot;删除完成！&quot;);</span><br><span class="line">            break;</span><br><span class="line">      case 5:</span><br><span class="line">          //退出</span><br><span class="line">          System.out.println(&quot;程序退出！&quot;);</span><br><span class="line">          System.exit(0);</span><br><span class="line">          break;</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Handle-java"><a href="#Handle-java" class="headerlink" title="Handle.java"></a><strong>Handle.java</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line">package database_20;</span><br><span class="line"></span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">import java.util.Set;</span><br><span class="line">/**</span><br><span class="line"> * 数据库操作类</span><br><span class="line"> * @author Administrator</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public class Handle &#123;</span><br><span class="line">    TestConnection tc = new TestConnection();</span><br><span class="line">    Scanner sc = new Scanner(System.in);</span><br><span class="line">    /**</span><br><span class="line">     * 查询方法</span><br><span class="line">     */</span><br><span class="line">    public void query() &#123;</span><br><span class="line">        System.out.println(&quot;1:查询全部&quot;);</span><br><span class="line">        System.out.println(&quot;2：根据ID查询&quot;);</span><br><span class="line">        System.out.print(&quot;选择你要执行选项:&quot;);</span><br><span class="line">        // Scanner sc2 = new Scanner(System.in);</span><br><span class="line">        int type2 = sc.nextInt();</span><br><span class="line">        switch (type2) &#123;</span><br><span class="line"> </span><br><span class="line">        case 1:</span><br><span class="line">            String Sql1 = &quot;select ID,Name,Salary,departmentId,email from employee where 1=?&quot;;			//表名在这里,这里顺序要和数据库表一致</span><br><span class="line">            Object[] array1 = &#123; 1 &#125;;</span><br><span class="line">            List list = tc.getData(Sql1, array1);</span><br><span class="line">            /**</span><br><span class="line">             * 取键值 并打印 即为输出的列名 排列</span><br><span class="line">             */</span><br><span class="line">            Map map2 = (Map) list.get(0);</span><br><span class="line">            // 存键值</span><br><span class="line">            Set set2 = map2.keySet();</span><br><span class="line">            Iterator it2 = set2.iterator();</span><br><span class="line">            while (it2.hasNext()) &#123;</span><br><span class="line">                System.out.print(&quot;\t&quot; + it2.next());</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            System.out.println();</span><br><span class="line">            //循环取出 每个行的数据</span><br><span class="line"> </span><br><span class="line">            for (Object object : list) &#123;</span><br><span class="line">                // list里面是map对象</span><br><span class="line">                Map map = (Map) object;</span><br><span class="line">                // 存键值</span><br><span class="line">                Set set = map.keySet();</span><br><span class="line">                Iterator it = set.iterator();</span><br><span class="line"> </span><br><span class="line">                while (it.hasNext()) &#123;</span><br><span class="line">                    // 取键值</span><br><span class="line"> </span><br><span class="line">                    Object key = it.next();</span><br><span class="line"> </span><br><span class="line">                    // 输出 map里的数据</span><br><span class="line"> </span><br><span class="line">                    System.out.print(&quot;\t &quot; + map.get(key));</span><br><span class="line"> </span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println();</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            break;</span><br><span class="line">        case 2:</span><br><span class="line">            /**</span><br><span class="line">             * 根据用户输入的员工id进行查询</span><br><span class="line">             */</span><br><span class="line">            System.out.println(&quot;输入ID：&quot;);</span><br><span class="line">            Object object = sc.nextInt();</span><br><span class="line">            Object[] array = &#123; object &#125;;</span><br><span class="line">            String Sql2 = &quot;select ID,Name,Salary,departmentId,email from employee where ID =? &quot;;</span><br><span class="line"> </span><br><span class="line">            List list2 = tc.getData(Sql2, array);</span><br><span class="line">           //输出列名</span><br><span class="line">            Map map3 = (Map) list2.get(0);</span><br><span class="line">            // 存键值</span><br><span class="line">            Set set3 = map3.keySet();</span><br><span class="line">            Iterator it3 = set3.iterator();</span><br><span class="line"> </span><br><span class="line">            while (it3.hasNext()) &#123;</span><br><span class="line">                System.out.print(&quot;\t&quot; + it3.next());</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            System.out.println();</span><br><span class="line">            //循环输出数据</span><br><span class="line">            for (Object object2 : list2) &#123;</span><br><span class="line">                // list里面是map对象</span><br><span class="line">                Map map4 = (Map) object2;</span><br><span class="line">                // 存键值</span><br><span class="line">                Set set4 = map4.keySet();</span><br><span class="line">                Iterator it4 = set4.iterator();</span><br><span class="line"> </span><br><span class="line">                while (it4.hasNext()) &#123;</span><br><span class="line">                    // 取键值</span><br><span class="line"> </span><br><span class="line">                    Object key = it4.next();</span><br><span class="line"> </span><br><span class="line">                    // 输出 map里的数据</span><br><span class="line"> </span><br><span class="line">                    System.out.print(&quot;\t &quot; + map4.get(key));</span><br><span class="line">                    // System.out.print(&quot;\\t&quot;+ map.get(key));</span><br><span class="line"> </span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println();</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * 更新方法</span><br><span class="line">     */</span><br><span class="line">    public void update()&#123;</span><br><span class="line">        System.out.print(&quot;请输入ID：&quot;);</span><br><span class="line">        Object id = sc.next();</span><br><span class="line">        System.out.print(&quot;请输入想更新的薪水值：&quot;);</span><br><span class="line">        Object salary = sc.next();</span><br><span class="line">        //根据用户输入的员工号来修改薪水值并判断是否执行成功</span><br><span class="line">        String sql = &quot;update employee set Salary = ? where  ID = ? &quot; ;</span><br><span class="line">        Object [] array =  &#123; salary, id  &#125;;</span><br><span class="line">        //使用TestConnection的update方法</span><br><span class="line">        int line =  tc.update(sql, array);</span><br><span class="line">        if(line&gt;0)&#123;</span><br><span class="line">            System.out.println(&quot;信息更新成功！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 插入方法</span><br><span class="line">     */</span><br><span class="line">    public void insert()&#123;</span><br><span class="line">        System.out.print(&quot;请输入ID：&quot;);</span><br><span class="line">        Object id = sc.next();</span><br><span class="line">        System.out.print(&quot;请输入Name：&quot;);</span><br><span class="line">        Object name = sc.next();</span><br><span class="line">        System.out.print(&quot;请输入email：&quot;);</span><br><span class="line">        Object email = sc.next();</span><br><span class="line">        System.out.print(&quot;请输入Salary：&quot;);</span><br><span class="line">        Object salary = sc.next();</span><br><span class="line">        System.out.print(&quot;请输入dapartmentId：&quot;);</span><br><span class="line">        Object dpId = sc.next();</span><br><span class="line">        Object[] array = &#123;id,name,salary,dpId,email&#125;;</span><br><span class="line">        //插入用户输入的数据 并判断是否执行成功</span><br><span class="line">        String sql = &quot;insert into employee values(?,?,?,?,?)&quot;;</span><br><span class="line">        int line = tc.update(sql, array);</span><br><span class="line">        if(line&gt;0)&#123;</span><br><span class="line">            System.out.println(&quot;插入成功！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * 删除方法</span><br><span class="line">     */</span><br><span class="line">    public void delete()&#123;</span><br><span class="line">        System.out.print(&quot;请输入想删除的员工号：&quot;);</span><br><span class="line">        Object id = sc.next();</span><br><span class="line">        Object [] array = &#123;id&#125;;</span><br><span class="line">        //删除用户输入 的员工号的数据并判断是否执行成功</span><br><span class="line">        String sql = &quot;delete from employee where ID = ? &quot;;</span><br><span class="line">        int line =  tc.update(sql, array);</span><br><span class="line">            if(line&gt;0)&#123;</span><br><span class="line">                System.out.println(&quot;删除成功！&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="TestConnection-java"><a href="#TestConnection-java" class="headerlink" title="TestConnection.java"></a><strong>TestConnection.java</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line">package database_20;</span><br><span class="line"></span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.DriverManager;</span><br><span class="line">import java.sql.PreparedStatement;</span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.ResultSetMetaData;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line"> </span><br><span class="line">public class TestConnection &#123;</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * 定义链接需要的字符串</span><br><span class="line">     */</span><br><span class="line">    private static final String str1 = &quot;com.mysql.jdbc.Driver&quot;;</span><br><span class="line">    private static final String url = &quot;jdbc:mysql://localhost/test?useSSL=false&quot;;  //这里是数据库名</span><br><span class="line">    private static final String user = &quot;root&quot;;</span><br><span class="line">    private static final String password = &quot;12345678&quot;;</span><br><span class="line">    Connection conn;</span><br><span class="line">    PreparedStatement st;</span><br><span class="line">    ResultSet rs;</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * 加载驱动类</span><br><span class="line">     */</span><br><span class="line">    static &#123;</span><br><span class="line"> </span><br><span class="line">        try &#123;</span><br><span class="line">            Class.forName(str1);</span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            // TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * 建立链接的方法</span><br><span class="line">     *</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private Connection getConnection() &#123;</span><br><span class="line"> </span><br><span class="line">        try &#123;</span><br><span class="line">            conn = DriverManager.getConnection(url, user, password);</span><br><span class="line"> </span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            // TODO: handle exception</span><br><span class="line">        &#125;</span><br><span class="line">        return conn;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * 使用prepareStatement来预编译查询语句 然后传参数的值来作为条件查询数据库 返回list</span><br><span class="line">     *</span><br><span class="line">     * @param id</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public List getData(String sql, Object[] array) &#123;</span><br><span class="line">        // SQL语句</span><br><span class="line">        List list = new ArrayList();</span><br><span class="line">        conn = this.getConnection();</span><br><span class="line">        try &#123;</span><br><span class="line">            // 预编译</span><br><span class="line">            st = conn.prepareStatement(sql);</span><br><span class="line">            // 利用方法传入参数</span><br><span class="line">            for (int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">                st.setObject(i + 1, array[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            // 执行查询</span><br><span class="line">            rs = st.executeQuery();</span><br><span class="line">            while (rs.next()) &#123;</span><br><span class="line">                Map map = new HashMap();</span><br><span class="line"> </span><br><span class="line">                ResultSetMetaData rsmd = rs.getMetaData();</span><br><span class="line">                // 以列名为键 存储每一行数据进map</span><br><span class="line">                for (int i = 1; i &lt;= rsmd.getColumnCount(); i++) &#123;</span><br><span class="line"> </span><br><span class="line">                    map.put(rsmd.getColumnName(i), rs.getObject(i));</span><br><span class="line"> </span><br><span class="line">                &#125;</span><br><span class="line">                // 将每一个map加入list 这样list的到就是每一行</span><br><span class="line">                list.add(map);</span><br><span class="line"> </span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">        &#125; catch (SQLException e) &#123;</span><br><span class="line">            // TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            // 关闭连接</span><br><span class="line">            this.close();</span><br><span class="line">        &#125;</span><br><span class="line">        return list;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * 更新数据的方法</span><br><span class="line">     *</span><br><span class="line">     * @param sql</span><br><span class="line">     * @param array</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public int update(String sql, Object array[]) &#123;</span><br><span class="line">        conn = this.getConnection();</span><br><span class="line">        int line = 0;</span><br><span class="line">        try &#123;</span><br><span class="line"> </span><br><span class="line">            st = conn.prepareStatement(sql);</span><br><span class="line">            // 传参数</span><br><span class="line">            for (int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">                st.setObject(i + 1, array[i]);</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            line = st.executeUpdate();</span><br><span class="line">            // 判断是否修改成功</span><br><span class="line">            if (line &gt; 0) &#123;</span><br><span class="line">                return line;</span><br><span class="line"> </span><br><span class="line">            &#125; else &#123;</span><br><span class="line"> </span><br><span class="line">                System.out.println(&quot;更新失败&quot;);</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">        &#125; catch (SQLException e) &#123;</span><br><span class="line"> </span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            // 关闭连接</span><br><span class="line">            this.close();</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * 关闭连接</span><br><span class="line">     */</span><br><span class="line">    private void close() &#123;</span><br><span class="line"> </span><br><span class="line">        try &#123;</span><br><span class="line">            if (rs != null) &#123;</span><br><span class="line">                rs.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (SQLException e) &#123;</span><br><span class="line">            // TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line"> </span><br><span class="line">            try &#123;</span><br><span class="line">                if (st != null) &#123;</span><br><span class="line">                    st.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; catch (SQLException e) &#123;</span><br><span class="line">                // TODO Auto-generated catch block</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; finally &#123;</span><br><span class="line"> </span><br><span class="line">                try &#123;</span><br><span class="line">                    if (conn != null) &#123;</span><br><span class="line">                        conn.close();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; catch (SQLException e) &#123;</span><br><span class="line">                    // TODO Auto-generated catch block</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private static final String url = &quot;jdbc:mysql://localhost/test?useSSL=false&quot;;  </span><br><span class="line">private static final String user = &quot;root&quot;;</span><br><span class="line">private static final String password = &quot;12345678&quot;;</span><br></pre></td></tr></table></figure>
+<p>这里<code>test</code>是数据库名, <code>user</code>是用户名，<code>password</code>是密码，都要换成自己的</p>
+<h1 id="2-在MYSQL中新建数据库和表，插入数据"><a href="#2-在MYSQL中新建数据库和表，插入数据" class="headerlink" title="2.在MYSQL中新建数据库和表，插入数据"></a>2.在MYSQL中新建数据库和表，插入数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show datebases;</span><br><span class="line">create database test;</span><br><span class="line">use test;</span><br><span class="line">show tables;</span><br><span class="line">create table employee(ID int(20) primary key auto_increment,Name varchar(20),Salary int(10),departmentId int(10),email varchar(20));</span><br><span class="line">desc employee;</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/7517555-2cc6ed452f82e802.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"></p>
+<h2 id="注意2-数据库中建表的字段顺序要和java中Handle-java"><a href="#注意2-数据库中建表的字段顺序要和java中Handle-java" class="headerlink" title="注意2:数据库中建表的字段顺序要和java中Handle.java"></a>注意2:数据库中建表的字段顺序要和java中Handle.java</h2><p><code>String Sql1 = &quot;select ID,Name,Salary,departmentId,email from employee where 1=?&quot;;</code><br>这里面字段顺序要保持一致<br>然后向表中插入数据，如下，插入一些数据<br><code>insert into employee(ID,Name,Salary,departmentId,email) values(3,&#39;jack&#39;,300,333,&#39;3333@qq.com&#39;);</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-4bce9bf5bd2a0b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="3-运行java中主程序"><a href="#3-运行java中主程序" class="headerlink" title="3.运行java中主程序"></a>3.运行java中主程序</h1><p>确定程序无误之后，运行Test.java,程序正确的话会发现结果如下<br><img src="https://upload-images.jianshu.io/upload_images/7517555-da1abad689870da0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>但是会发现这个程序存在一个问题，运行一次就自动停止了，不能持续循环多个操作</p>
+<h1 id="4-改进——查询直至外部停止"><a href="#4-改进——查询直至外部停止" class="headerlink" title="4.改进——查询直至外部停止"></a>4.改进——查询直至外部停止</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int index = 0;</span><br><span class="line">do&#123;  源程序&#125;   while(index != 5);</span><br></pre></td></tr></table></figure>
+<p>在源程序外面加上个while循环和index一直到输入中止条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package database_20;</span><br><span class="line"></span><br><span class="line">import java.util.Scanner;</span><br><span class="line">/**</span><br><span class="line"> * 测试类</span><br><span class="line"> * @author Administrator</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public class Test &#123;</span><br><span class="line">    private static Scanner sc;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">        int index = 0;    //新增</span><br><span class="line">        System.out.println(&quot;欢迎光临：&quot;);</span><br><span class="line">	//输出选项</span><br><span class="line">	  do&#123;                //新增</span><br><span class="line">      System.out.println(&quot;1：查询    2：更新     3：插入   4：删除   5：退出&quot;);</span><br><span class="line">      System.out.println(&quot;你想干什么？   请选择：&quot;);</span><br><span class="line">      sc = new Scanner(System.in);</span><br><span class="line">      //实例化数据操作类Handle</span><br><span class="line">      Handle hd = new Handle();</span><br><span class="line"></span><br><span class="line">      int type = sc.nextInt();</span><br><span class="line">      /**</span><br><span class="line">       * 判断用户选择操作的项</span><br><span class="line">          */</span><br><span class="line">        switch(type)&#123;</span><br><span class="line">        case 1:</span><br><span class="line">          //调用Handle查询方法</span><br><span class="line">          hd.query();</span><br><span class="line">      System.out.println(&quot;查询完成！&quot;);</span><br><span class="line">      	  index = type;              //新增</span><br><span class="line">          break;</span><br><span class="line">      case 2:</span><br><span class="line">          //更新</span><br><span class="line">          hd.update();</span><br><span class="line">          System.out.println(&quot;更新完成！&quot;);</span><br><span class="line">          index = type;</span><br><span class="line">          break;</span><br><span class="line">      case 3:</span><br><span class="line">          //插入</span><br><span class="line">          hd.insert();</span><br><span class="line">          System.out.println(&quot;插入完成！&quot;);</span><br><span class="line">          index = type;</span><br><span class="line">          break;</span><br><span class="line">      case 4:</span><br><span class="line">          //删除</span><br><span class="line">          hd.delete();</span><br><span class="line">          System.out.println(&quot;删除完成！&quot;);</span><br><span class="line">          index = type;</span><br><span class="line">          break;</span><br><span class="line">      case 5:</span><br><span class="line">          //退出</span><br><span class="line">          System.out.println(&quot;程序退出！&quot;);</span><br><span class="line">          System.exit(0);</span><br><span class="line">          break;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;while(index != 5);        //新增</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+	
+
+	
+    
+
+	
+	
+	<div>
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------���Ľ���<i class="fa fa-paw"></i>��л�����Ķ�-------------</div>
+    
+</div>
+	</div>
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jdbc/" rel="tag"># jdbc</a>
+          
+            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/18/JDBC/进阶2——对数据表进行增删改查改进版/" rel="next" title="进阶2——对数据表进行增删改查改进版">
+                <i class="fa fa-chevron-left"></i> 进阶2——对数据表进行增删改查改进版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/18/JDBC/进阶4——对数据库和数据库表进行动态增删改查/" rel="prev" title="进阶4——对数据库和数据库表进行动态增删改查">
+                进阶4——对数据库和数据库表进行动态增删改查 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Tidy1993" />
+            
+              <p class="site-author-name" itemprop="name">Tidy1993</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tidy1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/63ce19c421ab" target="_blank" title="JianShu">
+                      
+                        <i class="fa fa-fw fa-github"></i>JianShu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-在eclipse中新建三个文件"><span class="nav-text">1.在eclipse中新建三个文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-java"><span class="nav-text">Test.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Handle-java"><span class="nav-text">Handle.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TestConnection-java"><span class="nav-text">TestConnection.java</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-在MYSQL中新建数据库和表，插入数据"><span class="nav-text">2.在MYSQL中新建数据库和表，插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意2-数据库中建表的字段顺序要和java中Handle-java"><span class="nav-text">注意2:数据库中建表的字段顺序要和java中Handle.java</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-运行java中主程序"><span class="nav-text">3.运行java中主程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-改进——查询直至外部停止"><span class="nav-text">4.改进——查询直至外部停止</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tidy1993</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- ҳ����С���� -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

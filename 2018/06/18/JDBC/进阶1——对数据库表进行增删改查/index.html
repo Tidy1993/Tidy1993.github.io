@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="anaconda,python," />
+  <meta name="keywords" content="jdbc,JAVA,Mysql," />
 
 
 
@@ -79,26 +79,18 @@
 
 
 
-<meta name="description" content="1.安装anaconda使用anaconda直接默认安装了python和Numpyanaconda下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/推荐在此下载，官网下载速度缓慢 选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的 2.测试打开anacond">
-<meta name="keywords" content="anaconda,python">
+<meta name="description" content="《Java从入门到精通》20章20.4.7可以实现对数据进行增删改查功能：对test库中tb_stu表进行查询，增删改">
+<meta name="keywords" content="jdbc,JAVA,Mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装anaconda">
-<meta property="og:url" content="http://yoursite.com/2018/05/27/安装anaconda/index.html">
+<meta property="og:title" content="进阶1——对数据库表进行增删改查">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/JDBC/进阶1——对数据库表进行增删改查/index.html">
 <meta property="og:site_name" content="Tidy1993&#39;s blog">
-<meta property="og:description" content="1.安装anaconda使用anaconda直接默认安装了python和Numpyanaconda下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/推荐在此下载，官网下载速度缓慢 选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的 2.测试打开anacond">
+<meta property="og:description" content="《Java从入门到精通》20章20.4.7可以实现对数据进行增删改查功能：对test库中tb_stu表进行查询，增删改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-bbe86e7a753397f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-a7856f2c9042fb84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-ac407ddcde5f231a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-db46456bbd36d8ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-0b3e7e083decff77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-c8c04cb45a49356e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-efc4b8270b4006d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-18T07:40:46.416Z">
+<meta property="og:updated_time" content="2018-06-18T08:54:09.175Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装anaconda">
-<meta name="twitter:description" content="1.安装anaconda使用anaconda直接默认安装了python和Numpyanaconda下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/推荐在此下载，官网下载速度缓慢 选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的 2.测试打开anacond">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7517555-bbe86e7a753397f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="进阶1——对数据库表进行增删改查">
+<meta name="twitter:description" content="《Java从入门到精通》20章20.4.7可以实现对数据进行增删改查功能：对test库中tb_stu表进行查询，增删改">
 
 
 
@@ -128,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/27/安装anaconda/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/18/JDBC/进阶1——对数据库表进行增删改查/"/>
 
 
 
 
 
-  <title>安装anaconda | Tidy1993's blog</title>
+  <title>进阶1——对数据库表进行增删改查 | Tidy1993's blog</title>
   
 
 
@@ -272,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/安装anaconda/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/18/JDBC/进阶1——对数据库表进行增删改查/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tidy1993">
@@ -289,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">安装anaconda</h1>
+          <h1 class="post-title" itemprop="name headline">进阶1——对数据库表进行增删改查</h1>
         
 
         <div class="post-meta">
@@ -301,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T20:43:19+08:00">
-                2018-05-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-18T16:33:12+08:00">
+                2018-06-18
               </time>
             
 
@@ -335,8 +327,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/Programming/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/Mysql/JDBC/" itemprop="url" rel="index">
+                    <span itemprop="name">JDBC</span>
                   </a>
                 </span>
 
@@ -372,16 +375,10 @@
       
 
       
-        <h4 id="1-安装anaconda"><a href="#1-安装anaconda" class="headerlink" title="1.安装anaconda"></a>1.安装anaconda</h4><p>使用anaconda直接默认安装了python和Numpy<br>anaconda下载地址：<br><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a><br>推荐在此下载，官网下载速度缓慢</p>
-<p>选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的</p>
-<h4 id="2-测试"><a href="#2-测试" class="headerlink" title="2.测试"></a>2.测试</h4><p>打开anaconda prompt，相当于Windows中的cmd<br><img src="http://upload-images.jianshu.io/upload_images/7517555-bbe86e7a753397f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>输入<code>conda list</code><br>显示anaconda默认安装好的库，如果能出现下列显示说明anaconda安装成功啦<br><img src="http://upload-images.jianshu.io/upload_images/7517555-a7856f2c9042fb84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="3-打开notebook"><a href="#3-打开notebook" class="headerlink" title="3.打开notebook"></a>3.打开notebook</h4><p>启动了浏览器版本的编辑器，可以分模块run,但是不能debug,需要debug时需要用其他编辑器<br><img src="http://upload-images.jianshu.io/upload_images/7517555-ac407ddcde5f231a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/7517555-db46456bbd36d8ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="4-安装其他库"><a href="#4-安装其他库" class="headerlink" title="4.安装其他库"></a>4.安装其他库</h4><ul>
-<li>搜索某个库的课安装包<br>输入<code>anaconda search -t conda tensorflow</code><br>得到很多版本的包，选择匹配系统的相应版本<br><img src="http://upload-images.jianshu.io/upload_images/7517555-0b3e7e083decff77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><ul>
-<li>显示安装包的命令<br>输入<code>anaconda show 相应版本名字</code><br><img src="http://upload-images.jianshu.io/upload_images/7517555-c8c04cb45a49356e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/7517555-efc4b8270b4006d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>复制粘贴install的命令便可以安装库啦！</li>
-</ul>
-</li>
-</ul>
+        <p>《Java从入门到精通》20章20.4.7可以实现对数据进行增删改查<br>功能：对test库中tb_stu表进行查询，增删改</p>
+<a id="more"></a>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">import java.sql.*;</span><br><span class="line"></span><br><span class="line">public class Renewal &#123; // 创建类</span><br><span class="line">	static Connection con; // 声明Connection对象</span><br><span class="line">	static PreparedStatement sql; // 声明PreparedStatement对象</span><br><span class="line">	static ResultSet res; // 声明ResultSet对象</span><br><span class="line"></span><br><span class="line">	public Connection getConnection() &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">			con = DriverManager.getConnection(&quot;jdbc:mysql:&quot;</span><br><span class="line">					+ &quot;//127.0.0.1:3306/test&quot;, &quot;root&quot;, &quot;123456&quot;);</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		return con;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Renewal c = new Renewal(); // 创建本类对象</span><br><span class="line">		con = c.getConnection(); // 调用连接数据库方法</span><br><span class="line">		try &#123;</span><br><span class="line">			sql = con.prepareStatement(&quot;select * from tb_stu&quot;); // 查询数据库</span><br><span class="line">			res = sql.executeQuery(); // 执行SQL语句</span><br><span class="line">			System.out.println(&quot;执行增加、修改、删除前数据:&quot;);</span><br><span class="line">			while (res.next()) &#123;</span><br><span class="line">				String id = res.getString(1);</span><br><span class="line">				String name = res.getString(&quot;name&quot;);</span><br><span class="line">				String sex = res.getString(&quot;sex&quot;);</span><br><span class="line">				String birthday = res.getString(&quot;birthday&quot;); // 遍历查询结果集</span><br><span class="line">				System.out.print(&quot;编号：&quot; + id);</span><br><span class="line">				System.out.print(&quot; 姓名：&quot; + name);</span><br><span class="line">				System.out.print(&quot; 性别:&quot; + sex);</span><br><span class="line">				System.out.println(&quot; 生日：&quot; + birthday);</span><br><span class="line">			&#125;</span><br><span class="line">			sql = con.prepareStatement(&quot;insert into tb_stu(name,sex,birthday) values(?,?,?)&quot;);</span><br><span class="line">			sql.setString(1, &quot;张一&quot;); // 预处理添加数据</span><br><span class="line">			sql.setString(2, &quot;女&quot;);</span><br><span class="line">			sql.setString(3, &quot;2012-12-1&quot;);</span><br><span class="line">			sql.executeUpdate();</span><br><span class="line">			sql = con.prepareStatement(&quot;update tb_stu set birthday &quot;</span><br><span class="line">					+ &quot;= ? where id = ? &quot;);</span><br><span class="line">			sql.setString(1, &quot;2012-12-02&quot;); // 更新数据</span><br><span class="line">			sql.setInt(2, 1); // 更新数据</span><br><span class="line">			sql.executeUpdate();</span><br><span class="line">			Statement stmt = con.createStatement();</span><br><span class="line">			stmt.executeUpdate(&quot;delete from tb_stu where id = 1&quot;);</span><br><span class="line">			// 查询修改数据后的tb_stu表中数据</span><br><span class="line">			sql = con.prepareStatement(&quot;select * from tb_stu&quot;);</span><br><span class="line">			res = sql.executeQuery(); // 执行SQL语句</span><br><span class="line">			System.out.println(&quot;执行增加、修改、删除后的数据:&quot;);</span><br><span class="line">			while (res.next()) &#123;</span><br><span class="line">				String id = res.getString(1);</span><br><span class="line">				String name = res.getString(&quot;name&quot;);</span><br><span class="line">				String sex = res.getString(&quot;sex&quot;);</span><br><span class="line">				String birthday = res.getString(&quot;birthday&quot;);</span><br><span class="line">				System.out.print(&quot;编号：&quot; + id);</span><br><span class="line">				System.out.print(&quot; 姓名：&quot; + name);</span><br><span class="line">				System.out.print(&quot; 性别:&quot; + sex);</span><br><span class="line">				System.out.println(&quot; 生日：&quot; + birthday);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>1.自己得提前建立好和这个代码字段一致的MYSQL数据库和表<br>2.上述代码可以运行，但是存在的一个小的问题就是：只有在查询的时候有返回值，在增删改的时候不能显示状态，导致不知道是否操作成功，所以将对上述代码进行改进</p>
 
       
     </div>
@@ -413,9 +410,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/anaconda/" rel="tag"># anaconda</a>
+            <a href="/tags/jdbc/" rel="tag"># jdbc</a>
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
           
         </div>
       
@@ -428,14 +427,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/06/18/JDBC/入门3——预处理语句实现动态查询/" rel="next" title="入门3——预处理语句实现动态查询">
+                <i class="fa fa-chevron-left"></i> 入门3——预处理语句实现动态查询
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/28/用hexo搭建github博客详细全图解/" rel="prev" title="用hexo搭建github博客详细全图解">
-                用hexo搭建github博客详细全图解 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/18/JDBC/进阶2——对数据表进行增删改查改进版/" rel="prev" title="进阶2——对数据表进行增删改查改进版">
+                进阶2——对数据表进行增删改查改进版 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装anaconda"><span class="nav-text">1.安装anaconda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-测试"><span class="nav-text">2.测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-打开notebook"><span class="nav-text">3.打开notebook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-安装其他库"><span class="nav-text">4.安装其他库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li></ol></div>
             
 
           </div>

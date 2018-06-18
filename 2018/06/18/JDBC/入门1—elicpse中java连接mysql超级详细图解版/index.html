@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="anaconda,python," />
+  <meta name="keywords" content="jdbc,JAVA,Mysql," />
 
 
 
@@ -79,26 +79,25 @@
 
 
 
-<meta name="description" content="1.安装anaconda使用anaconda直接默认安装了python和Numpyanaconda下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/推荐在此下载，官网下载速度缓慢 选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的 2.测试打开anacond">
-<meta name="keywords" content="anaconda,python">
+<meta name="description" content="天知道，我是刚刚入门SQL基本操作之后照着《java入门到精通》学习连接数据库的一个小白，连加载驱动程序都不会的，把代码照着敲了一遍结果肯定报错啊！然后就一个个问题，解决，最后连接成功啦！大神勿喷">
+<meta name="keywords" content="jdbc,JAVA,Mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装anaconda">
-<meta property="og:url" content="http://yoursite.com/2018/05/27/安装anaconda/index.html">
+<meta property="og:title" content="入门1—elicpse中java连接mysql超级详细图解版">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/JDBC/入门1—elicpse中java连接mysql超级详细图解版/index.html">
 <meta property="og:site_name" content="Tidy1993&#39;s blog">
-<meta property="og:description" content="1.安装anaconda使用anaconda直接默认安装了python和Numpyanaconda下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/推荐在此下载，官网下载速度缓慢 选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的 2.测试打开anacond">
+<meta property="og:description" content="天知道，我是刚刚入门SQL基本操作之后照着《java入门到精通》学习连接数据库的一个小白，连加载驱动程序都不会的，把代码照着敲了一遍结果肯定报错啊！然后就一个个问题，解决，最后连接成功啦！大神勿喷">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-bbe86e7a753397f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-a7856f2c9042fb84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-ac407ddcde5f231a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-db46456bbd36d8ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-0b3e7e083decff77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-c8c04cb45a49356e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7517555-efc4b8270b4006d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-18T07:40:46.416Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-02f1ece27e60cbee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-c352eb89bfd179a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-9bce0050d505997a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-6564a10c22640544.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-0888e75ff6b966dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7517555-dfa680450e80762d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-18T08:27:24.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装anaconda">
-<meta name="twitter:description" content="1.安装anaconda使用anaconda直接默认安装了python和Numpyanaconda下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/推荐在此下载，官网下载速度缓慢 选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的 2.测试打开anacond">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7517555-bbe86e7a753397f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="入门1—elicpse中java连接mysql超级详细图解版">
+<meta name="twitter:description" content="天知道，我是刚刚入门SQL基本操作之后照着《java入门到精通》学习连接数据库的一个小白，连加载驱动程序都不会的，把代码照着敲了一遍结果肯定报错啊！然后就一个个问题，解决，最后连接成功啦！大神勿喷">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7517555-02f1ece27e60cbee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -128,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/27/安装anaconda/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/18/JDBC/入门1—elicpse中java连接mysql超级详细图解版/"/>
 
 
 
 
 
-  <title>安装anaconda | Tidy1993's blog</title>
+  <title>入门1—elicpse中java连接mysql超级详细图解版 | Tidy1993's blog</title>
   
 
 
@@ -272,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/安装anaconda/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/18/JDBC/入门1—elicpse中java连接mysql超级详细图解版/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tidy1993">
@@ -289,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">安装anaconda</h1>
+          <h1 class="post-title" itemprop="name headline">入门1—elicpse中java连接mysql超级详细图解版</h1>
         
 
         <div class="post-meta">
@@ -301,8 +300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T20:43:19+08:00">
-                2018-05-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-18T16:14:02+08:00">
+                2018-06-18
               </time>
             
 
@@ -335,8 +334,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/Programming/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/Mysql/JDBC/" itemprop="url" rel="index">
+                    <span itemprop="name">JDBC</span>
                   </a>
                 </span>
 
@@ -372,16 +382,16 @@
       
 
       
-        <h4 id="1-安装anaconda"><a href="#1-安装anaconda" class="headerlink" title="1.安装anaconda"></a>1.安装anaconda</h4><p>使用anaconda直接默认安装了python和Numpy<br>anaconda下载地址：<br><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a><br>推荐在此下载，官网下载速度缓慢</p>
-<p>选择一个合适的版本，尽量不要选择最新版本的，选择之前出的要稳定点，我第一次选择最新版本的安装上后就出现了问题，卸载了重新装的</p>
-<h4 id="2-测试"><a href="#2-测试" class="headerlink" title="2.测试"></a>2.测试</h4><p>打开anaconda prompt，相当于Windows中的cmd<br><img src="http://upload-images.jianshu.io/upload_images/7517555-bbe86e7a753397f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>输入<code>conda list</code><br>显示anaconda默认安装好的库，如果能出现下列显示说明anaconda安装成功啦<br><img src="http://upload-images.jianshu.io/upload_images/7517555-a7856f2c9042fb84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="3-打开notebook"><a href="#3-打开notebook" class="headerlink" title="3.打开notebook"></a>3.打开notebook</h4><p>启动了浏览器版本的编辑器，可以分模块run,但是不能debug,需要debug时需要用其他编辑器<br><img src="http://upload-images.jianshu.io/upload_images/7517555-ac407ddcde5f231a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/7517555-db46456bbd36d8ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="4-安装其他库"><a href="#4-安装其他库" class="headerlink" title="4.安装其他库"></a>4.安装其他库</h4><ul>
-<li>搜索某个库的课安装包<br>输入<code>anaconda search -t conda tensorflow</code><br>得到很多版本的包，选择匹配系统的相应版本<br><img src="http://upload-images.jianshu.io/upload_images/7517555-0b3e7e083decff77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><ul>
-<li>显示安装包的命令<br>输入<code>anaconda show 相应版本名字</code><br><img src="http://upload-images.jianshu.io/upload_images/7517555-c8c04cb45a49356e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/7517555-efc4b8270b4006d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>复制粘贴install的命令便可以安装库啦！</li>
-</ul>
-</li>
-</ul>
+        <p>天知道，我是刚刚入门SQL基本操作之后照着《java入门到精通》学习连接数据库的一个小白，连加载驱动程序都不会的，把代码照着敲了一遍结果肯定报错啊！然后就一个个问题，解决，最后连接成功啦！大神勿喷</p>
+<a id="more"></a>
+<h1 id="前提——学一学MYSQL基本语法和操作："><a href="#前提——学一学MYSQL基本语法和操作：" class="headerlink" title="前提——学一学MYSQL基本语法和操作："></a>前提——学一学MYSQL基本语法和操作：</h1><p>想要连接数据库，前提得是你安装成功了数据库，不会安装的参见此大神的帖子，图多详尽，MYSQL入门必备：<br><a href="https://zhuanlan.zhihu.com/p/31041165" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31041165</a><br>当然，熟悉了一些过后，记不住命令，只需要简单进行查询，也可以看看偶的JDBC学习预备篇——mysql基础语法和操作</p>
+<h1 id="开始——简单的JDBC连接示例1"><a href="#开始——简单的JDBC连接示例1" class="headerlink" title="开始——简单的JDBC连接示例1"></a>开始——简单的JDBC连接示例1</h1><p>下面代码是我参照《Java入门到精通》这本书，章节20，过程中出了很多错，慢慢调试到最后也就连接成功啦！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import java.sql.*;</span><br><span class="line"></span><br><span class="line">public class Conn &#123;</span><br><span class="line">	static Connection con;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Conn c = new Conn();</span><br><span class="line">		c.getConnection();</span><br><span class="line">	&#125;</span><br><span class="line">	public Connection getConnection()&#123;</span><br><span class="line">		try&#123;</span><br><span class="line">			Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">			System.out.println(&quot;数据库驱动加载成功&quot;);</span><br><span class="line">		&#125;catch(ClassNotFoundException e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		try&#123;</span><br><span class="line">			con = DriverManager.getConnection(&quot;jdbc:mysql:&quot; + &quot;//localhost:3306/tysql?useSSL=false&quot;,&quot;root&quot;,&quot;12345678&quot;);		//一定要改成自己的数据库tysql，用户：root,密码：</span><br><span class="line">			System.out.println(&quot;数据库连接成功&quot;);</span><br><span class="line">		&#125;catch(SQLException e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		return con;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="error-1"><a href="#error-1" class="headerlink" title="error 1"></a>error 1</h2><p><code>java.lang.ClassNotFoundException: com.mysql.jdbc.Driver</code><br>如果你也像我一样简简单单照着书打了一遍关于连接数据库的代码，恭喜你会遇到第一个error：java.lang.ClassNotFoundException: com.mysql.jdbc.Driver，也就是提示找不到这个驱动包<br><img src="https://upload-images.jianshu.io/upload_images/7517555-02f1ece27e60cbee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>解决方法：<br>1.官网下载：<br><a href="https://dev.mysql.com/downloads/connector/j/5.1.html" target="_blank" rel="noopener">https://dev.mysql.com/downloads/connector/j/5.1.html</a><br><img src="https://upload-images.jianshu.io/upload_images/7517555-c352eb89bfd179a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>选择合适的版本，因为我也不知道啥子版本合适，我就下载最新版本</p>
+<h2 id="解压加载"><a href="#解压加载" class="headerlink" title="解压加载"></a>解压加载</h2><p>将下载的压缩包解压在合适的路径，这个路径一会儿要用来加载文件，慎选哦！<br><img src="https://upload-images.jianshu.io/upload_images/7517555-9bce0050d505997a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>然后打开elicpse<br><code>新建的项目-&gt;project-&gt;properties-&gt;java build path-&gt;libraries-&gt;add external jars</code><br>然后将解压出的mysql-connector-java-5.1.46.jar文件添加进去。<br><img src="https://upload-images.jianshu.io/upload_images/7517555-6564a10c22640544.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>yeah!加载进去了也，应该木有问题了撒！<br><img src="https://upload-images.jianshu.io/upload_images/7517555-0888e75ff6b966dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>恭喜，又报错了！</p>
+<h2 id="error-2"><a href="#error-2" class="headerlink" title="error 2"></a>error 2</h2><figure class="highlight plain"><figcaption><span>Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">百度了下，发现问题是mysql5.5.45之后的版本要求建立的连接指明是否为ssl 连接？</span><br><span class="line">回头看了一眼我的mysql，5.7的难怪会报错</span><br><span class="line">![image.png](https://upload-images.jianshu.io/upload_images/7517555-657b182f944749a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">解决方法：在URL 后面加上参数useSSL=false 或者useSSL=true 可解决</span><br><span class="line">即，图中代码行：</span><br><span class="line">`//localhost:3306/test`后面要加上`?useSSL=false` 或者`?useSSL=true`</span><br><span class="line">变为</span><br><span class="line">`con = DriverManager.getConnection(&quot;jdbc:mysql:&quot; + &quot;//localhost:3306/test?useSSL=false&quot;,&quot;root&quot;,&quot;12345678&quot;);`</span><br><span class="line"></span><br><span class="line">这下应该没毛病了吧！run一下</span><br><span class="line">![image.png](https://upload-images.jianshu.io/upload_images/7517555-f732adbff5332049.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">## error 3:Unknown database &apos;test&apos;</span><br><span class="line"></span><br><span class="line">找不到数据库，当然找不到啊，回头看了一眼自己数据库</span><br><span class="line">![image.png](https://upload-images.jianshu.io/upload_images/7517555-5805ec1d46f511b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line">对呀，你都没有test这个数据库，人家咋给你连接嘛！</span><br><span class="line">`con = DriverManager.getConnection(&quot;jdbc:mysql:&quot; + &quot;//localhost:3306/test?useSSL=false&quot;,&quot;root&quot;,&quot;12345678&quot;);`</span><br><span class="line">里面一定要记得改成，自己建立好了的数据库和用户名，还有密码</span><br></pre></td></tr></table></figure>
+<p>127.0.0.1 : 就是指的你本机， 本地的意思 ，当然你也可以改成localhost 也是一样的意思。<br>3306 : 是mysql的默认端口，除非你安装了mysql后手动修改过端口，没修改都是3306，这个没说的<br>test : 要连接的数据库名<br>root : 数据库用户名<br>12345678 ：数据库密码<br><code>`</code><br>在运行一下，没毛病啦！<br><img src="https://upload-images.jianshu.io/upload_images/7517555-dfa680450e80762d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>好，继续升级……</p>
 
       
     </div>
@@ -413,9 +423,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/anaconda/" rel="tag"># anaconda</a>
+            <a href="/tags/jdbc/" rel="tag"># jdbc</a>
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
           
         </div>
       
@@ -428,14 +440,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/06/18/JDBC/学习预备——mysql基础语法和操作-1/" rel="next" title="学习预备——mysql基础语法和操作">
+                <i class="fa fa-chevron-left"></i> 学习预备——mysql基础语法和操作
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/28/用hexo搭建github博客详细全图解/" rel="prev" title="用hexo搭建github博客详细全图解">
-                用hexo搭建github博客详细全图解 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/18/JDBC/入门2——java连接mysql后顺序查询数据库表信息/" rel="prev" title="入门2——java连接mysql后顺序查询数据库表信息">
+                入门2——java连接mysql后顺序查询数据库表信息 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装anaconda"><span class="nav-text">1.安装anaconda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-测试"><span class="nav-text">2.测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-打开notebook"><span class="nav-text">3.打开notebook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-安装其他库"><span class="nav-text">4.安装其他库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提——学一学MYSQL基本语法和操作："><span class="nav-text">前提——学一学MYSQL基本语法和操作：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始——简单的JDBC连接示例1"><span class="nav-text">开始——简单的JDBC连接示例1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#error-1"><span class="nav-text">error 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压加载"><span class="nav-text">解压加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#error-2"><span class="nav-text">error 2</span></a></li></ol></li></ol></div>
             
 
           </div>
