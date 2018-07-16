@@ -355,223 +355,14 @@
 
       
         
-          
-            <h4 id="Numpy函数"><a href="#Numpy函数" class="headerlink" title="Numpy函数"></a>Numpy函数</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>import numpy as np</td>
-<td>重命名</td>
-</tr>
-<tr>
-<td>numpy.genformtxt(“路径”，delimiter=”,”,dtype=str)</td>
-<td>导入外部文件默认使用str</td>
-</tr>
-<tr>
-<td>numpy.array([])</td>
-<td>新建数组，数据类型必须是一致的</td>
-</tr>
-<tr>
-<td>numpy.arange(15)</td>
-<td>产生从0到14的向量</td>
-</tr>
-<tr>
-<td>numpy.arange(15).reshape(3,5)</td>
-<td>矩阵变换</td>
-</tr>
-<tr>
-<td>numpy.zeros((3,4))</td>
-<td>初始化矩阵全为0，要把3,4括号括起来，成为元组形式，不然会报错</td>
-</tr>
-<tr>
-<td>numpy.ones((3,4)，dtype=numpy.int32)</td>
-<td>全1矩阵,并且指定相应数据类型</td>
-</tr>
-<tr>
-<td>numpy.arange(10,30,5)</td>
-<td>从10开始5递增30结束的数组</td>
-</tr>
-<tr>
-<td>numpy.random.random((2,3))</td>
-<td>先进入random模块再调用random函数，得到2行3列的随机数</td>
-</tr>
-<tr>
-<td>numpy.linspace(0,8,30)</td>
-<td>从0到8，30个值，以平均30为递增数</td>
-</tr>
-<tr>
-<td>numpy.tile(a,(3,5))</td>
-<td>进行扩展，把a行变成3倍，列变成5倍</td>
-</tr>
-<tr>
-<td>numpy.sort(a,axis=1)</td>
-<td>行按照大小排序</td>
-</tr>
-<tr>
-<td>numpy.exp(B)</td>
-<td>乘幂</td>
-</tr>
-<tr>
-<td>numpy.sqrt(B)</td>
-<td>开根号</td>
-</tr>
-<tr>
-<td>numpy.floor()</td>
-<td>向下的取整</td>
-</tr>
-</tbody>
-</table>
-<h4 id="矩阵的拼接"><a href="#矩阵的拼接" class="headerlink" title="矩阵的拼接"></a>矩阵的拼接</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>numpy.hstack((a,b))</td>
-<td>横着拼接</td>
-</tr>
-<tr>
-<td>numpy.vstack((a,b))</td>
-<td>竖着拼接</td>
-</tr>
-</tbody>
-</table>
-<h4 id="矩阵的切分"><a href="#矩阵的切分" class="headerlink" title="矩阵的切分"></a>矩阵的切分</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>numpy.hsplit(a,3)</td>
-<td>按行进行切分，横着切，切分为3份</td>
-</tr>
-<tr>
-<td>numpy.vspilt(a,3)</td>
-<td>按列进行切分，纵着切</td>
-</tr>
-</tbody>
-</table>
-<h4 id="矩阵操作"><a href="#矩阵操作" class="headerlink" title="矩阵操作"></a>矩阵操作</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>print(vector.shape)</td>
-<td>通过.shape看vector的结构</td>
-</tr>
-<tr>
-<td>print(type(文件名))</td>
-<td>打印文件类型</td>
-</tr>
-<tr>
-<td>print(help(numpy.genformtxt))</td>
-<td>打开帮助文档查看genformtxt函数</td>
-</tr>
-<tr>
-<td>vertor == 3</td>
-<td>判断vector是否有数字3?结果返回布尔型</td>
-</tr>
-<tr>
-<td>vector = vector.astype(float)</td>
-<td>转换成float类型</td>
-</tr>
-<tr>
-<td>vector.min()</td>
-<td>找最小值</td>
-</tr>
-<tr>
-<td>matrix.sum(axis=1)</td>
-<td>对行求和，每行元素加起来</td>
-</tr>
-<tr>
-<td>matrix.shape</td>
-<td>从10开始5递增30结束的数组</td>
-</tr>
-<tr>
-<td>matrix.nidm</td>
-<td>打印维度</td>
-</tr>
-<tr>
-<td>matrix.size</td>
-<td>打印元素个数</td>
-</tr>
-<tr>
-<td>matrix.reshape()</td>
-<td>向量变成矩阵</td>
-</tr>
-<tr>
-<td>matrix.reshape(3,-1)</td>
-<td>变成3行，多少列写成-1默认自己计算</td>
-</tr>
-<tr>
-<td>matrix.ravel()</td>
-<td>矩阵变成向量</td>
-</tr>
-<tr>
-<td>matrix.T</td>
-<td>转置</td>
-</tr>
-<tr>
-<td>-</td>
-<td>进行对应位置的相减</td>
-</tr>
-<tr>
-<td>**</td>
-<td>求平方</td>
-</tr>
-<tr>
-<td>*</td>
-<td>矩阵对应位置的元素相乘</td>
-</tr>
-<tr>
-<td>.dot  A.dot(B)/numpy.dot(A,B)</td>
-<td>矩阵的乘法，行乘以列</td>
-</tr>
-<tr>
-<td>ind = matrix.argmax(axis=0)</td>
-<td>索引axis=0指定以列找最大值的索引</td>
-</tr>
-</tbody>
-</table>
-<h4 id="矩阵复制"><a href="#矩阵复制" class="headerlink" title="矩阵复制"></a>矩阵复制</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>= ：</td>
-<td>两个变量名都会指向同一个数据，一变均变</td>
-</tr>
-<tr>
-<td>c = a.view()</td>
-<td>虽然指向不同位置，但是共用了一堆值，所以一个变了另外一个也变了</td>
-</tr>
-<tr>
-<td>c = a.copy()</td>
-<td>这样就相互不影响了</td>
-</tr>
-</tbody>
-</table>
-
-          
+          <h4 id="Numpy函数"><a href="#Numpy函数" class="headerlink" title="Numpy函数"></a>Numpy函数</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/16/3-Numpy基本函数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -727,104 +518,14 @@
 
       
         
-          
-            <p>在此慢慢整理和记录下eclipse中的常用快捷键。<br>快捷键更改：Window-&gt; Preferences-&gt; General-&gt; keys</p>
-<table>
-<thead>
-<tr>
-<th>作用</th>
-<th>快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>查看快捷键</td>
-<td>ctrl+shift+l</td>
-</tr>
-<tr>
-<td>快速修正</td>
-<td>Ctrl+1</td>
-</tr>
-<tr>
-<td>内容助理</td>
-<td>Alt+/</td>
-</tr>
-<tr>
-<td>运行</td>
-<td>Ctrl+F11</td>
-</tr>
-<tr>
-<td>整体替换某个变量名</td>
-<td>alt+shift+r</td>
-</tr>
-<tr>
-<td>快速转换编辑器</td>
-<td>ctrl+e</td>
-</tr>
-<tr>
-<td>将选中内容上移下移</td>
-<td>Alt+方向键</td>
-</tr>
-<tr>
-<td>在当前行之前之后插入空白行</td>
-<td>shift+enter及ctrl+shift+enter</td>
-</tr>
-<tr>
-<td>自动补全</td>
-<td>Ctrl+alt+/</td>
-</tr>
-<tr>
-<td>格式化代码块</td>
-<td>ctrl+shift+F</td>
-</tr>
-<tr>
-<td>注释</td>
-<td>ctrl+shift+/</td>
-</tr>
-<tr>
-<td>取消注释</td>
-<td>ctrl+shift+\</td>
-</tr>
-<tr>
-<td>查看方法说明</td>
-<td>F2</td>
-</tr>
-<tr>
-<td>重置透视图</td>
-<td>window–&gt;perspective–&gt;resetperspective</td>
-</tr>
-<tr>
-<td>改为大写</td>
-<td>ctrl+shift+X</td>
-</tr>
-<tr>
-<td>改为小写</td>
-<td>ctrl+shift+Y</td>
-</tr>
-<tr>
-<td>查看类继承关系</td>
-<td>ctrl+T</td>
-</tr>
-<tr>
-<td>查看源代码</td>
-<td>ctrl+shift+T</td>
-</tr>
-<tr>
-<td>导包</td>
-<td>ctrl+shift+O</td>
-</tr>
-</tbody>
-</table>
-<h4 id="导入源码步骤："><a href="#导入源码步骤：" class="headerlink" title="导入源码步骤："></a>导入源码步骤：</h4><p>比如要看<code>HashMap（）</code>的源码</p>
-<ul>
-<li>1.按住<code>ctrl</code>然后点中<code>HashMap</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-53f350e6c9a63b2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>2.然后，点<code>Attach+Source</code>出现下面的对话框，点<code>external file</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-26190e6aec966c24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li><p>3.找到java安装路径下的<code>JDK--&gt;src.zip</code>,然后<code>ok</code><br><img src="https://upload-images.jianshu.io/upload_images/7517555-a31555d4f8e30892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这些就能愉快的看源码了呀！<br><img src="https://upload-images.jianshu.io/upload_images/7517555-bd2840272833b699.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-</ul>
-
-          
+          <p>在此慢慢整理和记录下eclipse中的常用快捷键。<br>快捷键更改：Window-&gt; Preferences-&gt; General-&gt; keys</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/16/3-Eclipse中的快捷键/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -980,14 +681,15 @@
 
       
         
-          
-            <p>Eclipse是由IEM公司投资4000万美元开发的目前最流行的Java集成开发工具之一。</p>
-<h3 id="1-下载Eclipse"><a href="#1-下载Eclipse" class="headerlink" title="1.下载Eclipse"></a>1.下载Eclipse</h3><p>官网：<a href="http://www.eclipse.org/" target="_blank" rel="noopener">http://www.eclipse.org/</a><br>找到DOWNLOAD<br><img src="http://upload-images.jianshu.io/upload_images/7517555-c89bbf3650a690e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="11.png"></p>
-<h3 id="2-下载合适版本"><a href="#2-下载合适版本" class="headerlink" title="2.下载合适版本"></a>2.下载合适版本</h3><p>页面显示的都是最新的，但是要寻找合适的，点击下方Download Packages<br><img src="http://upload-images.jianshu.io/upload_images/7517555-32b1837372d85d8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="12.png"><br>有很多版本oxygen，mars,不同版本的详细介绍参见<br>“<a href="http://blog.csdn.net/u012049463/article/details/40482155”，在此我选择和书上一致，下载了Mars中的Eclipse" target="_blank" rel="noopener">http://blog.csdn.net/u012049463/article/details/40482155”，在此我选择和书上一致，下载了Mars中的Eclipse</a> IDE for Java Developers<br><img src="http://upload-images.jianshu.io/upload_images/7517555-6d4026bb8df5e070.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="13.png"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/7517555-631720ab9f349d9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="14.png"></p>
-<h3 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h3><p>在此说明，关于汉化： 本来第一次安装时按照书上下载了汉化包再安装，结果书上安装完才说明英文原版Eclipse更加稳定，建议使用英文，-_-||汗，所以还是就直接安装吧，别汉化了。<br>直接安装时，注意，先把解压缩的文件移动到要安装的目录再点击“eclipse.exe”<br>工作空间：“.\workspace”<br>(让其安装在Eclipse的安装目录下的workspace中，当然也可以自行选择)<br>至此安装完毕，终于可以开始码代码了</p>
-
-          
+          <p>Eclipse是由IEM公司投资4000万美元开发的目前最流行的Java集成开发工具之一。</p>
+<h3 id="1-下载Eclipse"><a href="#1-下载Eclipse" class="headerlink" title="1.下载Eclipse"></a>1.下载Eclipse</h3><p>官网：<a href="http://www.eclipse.org/" target="_blank" rel="noopener">http://www.eclipse.org/</a><br>找到DOWNLOAD</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/16/2-eclipse的安装和使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1143,19 +845,15 @@
 
       
         
-          
-            <h4 id="1-登录官网"><a href="#1-登录官网" class="headerlink" title="1.登录官网"></a>1.登录官网</h4><p><code>https://www.oracle.com/index.html</code><br>找到Tridals and Downloads,点击<br><img src="http://upload-images.jianshu.io/upload_images/7517555-823de3df707bc9e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="官网"></p>
-<h4 id="2-找到Java-for-Developers-开发者工具"><a href="#2-找到Java-for-Developers-开发者工具" class="headerlink" title="2.找到Java for Developers(开发者工具)"></a>2.找到Java for Developers(开发者工具)</h4><p><img src="http://upload-images.jianshu.io/upload_images/7517555-c91556b1adb73e71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.png"></p>
-<h4 id="3-选择合适的版本"><a href="#3-选择合适的版本" class="headerlink" title="3.选择合适的版本"></a>3.选择合适的版本</h4><p>重点注意，虽然点进去有很多版本，但是要注意JDK版本和JRE版本要匹配，并且如果在此安装了高版本的JDK，后面eclipse中JRE版本跟不上就无法在eclipse中调用JRE<br>（我就是下了一个最新版本的JDK9结果装好eclipse之后发现无法使用，欲哭无泪，卸了重装）<br>在此我安装的是 JDK 8u65,老版本的JDK都要在下载页面底部的Java Archive中才能找到和下载！<br><img src="http://upload-images.jianshu.io/upload_images/7517555-2314758e74b774b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3.png"><br>找到合适版本后，选择相应的系统进行下载，注意下载的是JDK不是JRE<br><img src="http://upload-images.jianshu.io/upload_images/7517555-d02fba723b6b480f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.png"></p>
-<h4 id="4-安装"><a href="#4-安装" class="headerlink" title="4.安装"></a>4.安装</h4><p>安装按照提示<br>JDK安装路径的选择可以不选择为系统盘，我安装在了<code>E:\Program Files\java\JDK</code><br>(在E盘Program Files下新建了java文件夹，在java下新建了JDK)<br>在安装过程中会弹出JRE的“目标文件夹”对话框<br>JRE安装路径手动添加为：<br><code>E:\Program Files\java\jre8</code>和JDK在同一目录下<br>安装完成<br><img src="http://upload-images.jianshu.io/upload_images/7517555-87655ac7d3f21b2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="5.png"></p>
-<h4 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h4><p>安装完成之后，打开“电脑-属性-高级系统设置-环境变量”</p>
-<h5 id="新建系统变量JAVA-HOME"><a href="#新建系统变量JAVA-HOME" class="headerlink" title="新建系统变量JAVA_HOME"></a>新建系统变量JAVA_HOME</h5><p>变量名为“<code>JAVA_HOME</code>”,值为“<code>E:\Program Files\java\JDK</code>”（JDK安装路径）<br><img src="http://upload-images.jianshu.io/upload_images/7517555-ff9d781a6e6a8e5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="6.png"></p>
-<h5 id="新建系统变量CLASSPATH"><a href="#新建系统变量CLASSPATH" class="headerlink" title="新建系统变量CLASSPATH"></a>新建系统变量CLASSPATH</h5><p>变量名为“CLASSPATH”值为“<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code>”<br>（引号中的内容原封不动粘贴进去，前面点和分号都必须有）<br><img src="http://upload-images.jianshu.io/upload_images/7517555-e44d69ae952fce10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="7.png"></p>
-<h5 id="更改系统变量Path"><a href="#更改系统变量Path" class="headerlink" title="更改系统变量Path"></a>更改系统变量Path</h5><p>在系统变量Path的最前面，添加“<code>.;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code>”<br>添加完成之后“确定”“确定”<br><img src="http://upload-images.jianshu.io/upload_images/7517555-aca2d898e95909c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="8.png"></p>
-<h4 id="6-检测是否配置成功"><a href="#6-检测是否配置成功" class="headerlink" title="6.检测是否配置成功"></a>6.检测是否配置成功</h4><p>快捷键“<code>win+r</code>”打开运行，输入“<code>cmd</code>”打开命令提示符<br>输入“<code>javac</code>”出现图示文字说明配置成功<br>查看java版本，输入“<code>java -version</code>”出现相应版本信息</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/7517555-dc9a4067fd6ed21d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="9.png"><br>至此，折腾了2天的安装结束，注意事项：<br>1.安装版本一定要选对<br>2.不一定安装在C盘，但是后面配置环境变量的路径就要是JDK安装路径</p>
-
-          
+          <h4 id="1-登录官网"><a href="#1-登录官网" class="headerlink" title="1.登录官网"></a>1.登录官网</h4><p><code>https://www.oracle.com/index.html</code></p>
+<p>找到Tridals and Downloads,点击<br><img src="http://upload-images.jianshu.io/upload_images/7517555-823de3df707bc9e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="官网"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/16/win下JDK1-8-8u65-安装和测试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1893,12 +1591,14 @@
 
       
         
-          
-            <h4 id="1、右键以管理员身份运行Windows-Powershell组件。"><a href="#1、右键以管理员身份运行Windows-Powershell组件。" class="headerlink" title="1、右键以管理员身份运行Windows Powershell组件。"></a>1、右键以管理员身份运行Windows Powershell组件。</h4><p><img src="https://upload-images.jianshu.io/upload_images/7517555-15bd37c1615fa88c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="11.png"></p>
-<h4 id="2、输入命令"><a href="#2、输入命令" class="headerlink" title="2、输入命令"></a>2、输入命令</h4><h4 id="Get-AppxPackage-AllUsers-Foreach-Add-AppxPackage-DisableDevelopmentMode-Register-quot-InstallLocation-AppXManifest-xml-quot"><a href="#Get-AppxPackage-AllUsers-Foreach-Add-AppxPackage-DisableDevelopmentMode-Register-quot-InstallLocation-AppXManifest-xml-quot" class="headerlink" title="Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register &quot;$($_.InstallLocation)\AppXManifest.xml&quot;}"></a><code>Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register &quot;$($_.InstallLocation)\AppXManifest.xml&quot;}</code></h4><p>运行完会恢复以前卸载的所有自带应用<br><img src="https://upload-images.jianshu.io/upload_images/7517555-13c47ece945cfcdf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="12.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7517555-29959a38ddd9173e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="13.png"></p>
-
-          
+          <h4 id="1、右键以管理员身份运行Windows-Powershell组件。"><a href="#1、右键以管理员身份运行Windows-Powershell组件。" class="headerlink" title="1、右键以管理员身份运行Windows Powershell组件。"></a>1、右键以管理员身份运行Windows Powershell组件。</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/18/win10/win10误删microsoft-store之后再次安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
